@@ -1,0 +1,100 @@
+#pragma once
+
+#include "Expr.h"
+#include "Token.h"
+#include <memory>
+#include <vector>
+
+struct Stmt {
+    virtual ~Stmt() = default;
+};
+
+// 'say "hello"'
+struct Print : Stmt {
+    std::unique_ptr<Expr> expression;
+
+    Print(std::unique_ptr<Expr> expression) 
+        : expression(std::move(expression)) {}
+};
+
+// 'read name' or 'read name as "prompt"'
+struct Read : Stmt {
+    Token name;
+    std::unique_ptr<Expr> prompt;
+
+    Read(Token name, std::unique_ptr<Expr> prompt) 
+        : name(name), prompt(std::move(prompt)) {}
+};
+
+// 'please give value'
+struct Return : Stmt {
+    std::unique_ptr<Expr> value;
+
+    Return(std::unique_ptr<Expr> value) 
+        : value(std::move(value)) {}
+};
+
+// 'var name is value'
+struct Var : Stmt {
+    Token name;
+    std::unique_ptr<Expr> initializer;
+
+    Var(Token name, std::unique_ptr<Expr> initializer) 
+        : name(name), initializer(std::move(initializer)) {}
+};
+
+// '1 + 1' (expression statement)
+struct Expression : Stmt {
+    std::unique_ptr<Expr> expression;
+
+    Expression(std::unique_ptr<Expr> expression) 
+        : expression(std::move(expression)) {}
+};
+
+// 'when (condition) then ...'
+struct If : Stmt {
+    std::unique_ptr<Expr> condition;
+    std::unique_ptr<Stmt> thenBranch;
+    std::unique_ptr<Stmt> elseBranch;
+
+    If(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> thenBranch, std::unique_ptr<Stmt> elseBranch)
+        : condition(std::move(condition)), thenBranch(std::move(thenBranch)), elseBranch(std::move(elseBranch)) {}
+};
+
+// 'with (condition) then ...'
+struct While : Stmt {
+    std::unique_ptr<Expr> condition;
+    std::unique_ptr<Stmt> body;
+
+    While(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> body) 
+        : condition(std::move(condition)), body(std::move(body)) {}
+};
+
+// Block of statements
+struct Block : Stmt {
+    std::vector<std::unique_ptr<Stmt>> statements;
+
+    Block(std::vector<std::unique_ptr<Stmt>> statements) 
+        : statements(std::move(statements)) {}
+};
+
+// 'with source is iterator as mode'
+struct ForEach : Stmt {
+    Token iterator;
+    Token source;
+    std::string mode; // "words" or "letter"
+    std::unique_ptr<Stmt> body;
+
+    ForEach(Token iterator, Token source, std::string mode, std::unique_ptr<Stmt> body)
+        : iterator(iterator), source(source), mode(mode), body(std::move(body)) {}
+};
+
+// Function declaration
+struct Function : Stmt {
+    Token name;
+    std::vector<Token> params;
+    std::vector<std::unique_ptr<Stmt>> body;
+
+    Function(Token name, std::vector<Token> params, std::vector<std::unique_ptr<Stmt>> body)
+        : name(name), params(params), body(std::move(body)) {}
+};

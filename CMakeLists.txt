@@ -7,4 +7,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17 )
 set(CMAKE_CXX_STANDARD_REQUIRED ON ) 
 
-add_executable(lkeycpp main.cpp Lexer.cpp Parser.cpp Interpreter.cpp)
+include_directories(include)
+
+add_executable(lkeycpp src/main.cpp src/Lexer.cpp src/Parser.cpp src/Interpreter.cpp)

@@ -1,0 +1,44 @@
+
+say "--- Test empty array ---"
+var empty_arr is ()
+say empty_arr
+
+say "--- Test single element array ---"
+var single_arr is (10)
+say single_arr
+
+say "--- Test single element array with trailing comma ---"
+var single_arr_comma is (20,)
+say single_arr_comma
+
+say "--- Test basic array ---"
+var arr is (1, 2, 3)
+say arr
+say arr(0)
+say arr(1)
+say arr(2)
+
+say "--- Test nested array ---"
+var nested_arr is ((10, 20), (30, 40))
+say nested_arr
+say nested_arr(0)
+say nested_arr(1)
+say nested_arr(0)(0)
+say nested_arr(0)(1)
+say nested_arr(1)(0)
+say nested_arr(1)(1)
+
+say "--- Test array with different types ---"
+var mixed_arr is (1, "hello", 1)
+say mixed_arr
+say mixed_arr(1)
+
+say "--- Test array assignment ---"
+var x is (100, 200)
+var y is x
+y is (300, 400)
+say x
+say y
+
+
+say "--- Done ---"
