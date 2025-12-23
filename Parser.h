@@ -21,6 +21,7 @@ private:
   // Statement parsing
   std::unique_ptr<Stmt> declaration();
   std::unique_ptr<Stmt> varDeclaration();
+  std::unique_ptr<Stmt> functionDeclaration(std::string kind);
   std::unique_ptr<Stmt> statement();
   std::unique_ptr<Stmt> ifStatement();
   std::unique_ptr<Stmt> withStatement();
@@ -36,6 +37,7 @@ private:
   std::unique_ptr<Expr> term();
   std::unique_ptr<Expr> factor();
   std::unique_ptr<Expr> unary();
+  std::unique_ptr<Expr> call();
   std::unique_ptr<Expr> primary();
 
   bool match(const std::vector<TokenType> &types);

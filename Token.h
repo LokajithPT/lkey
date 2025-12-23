@@ -27,6 +27,9 @@ enum class TokenType {
   WITH,
   FROM,
   TO,
+  HOW,
+  SO,
+  THAS,
   READ,
   SAY,
 

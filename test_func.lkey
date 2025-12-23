@@ -1,0 +1,8 @@
+how to greet with name, age so
+    say "Hello " plus name
+    say "You are " plus age plus " years old"
+thas how
+
+say "Start"
+greet("Alice", 25)
+say "End"

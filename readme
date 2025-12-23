@@ -136,6 +136,25 @@ with i from 1 to 3 then
     say i.
 ```
 
+### 7. Functions
+Functions are first-class citizens in Lowkey.
+
+**Definition:**
+Use `how to` to define a function, `with` for parameters, and `thas how` to end it.
+
+```lowkey
+how to greet with name, age so
+    say "Hello " plus name
+    say "Age: " plus age
+thas how
+```
+
+**Calling:**
+Call functions using standard syntax.
+```lowkey
+greet("Alice", 25)
+```
+
 ## 📝 Example Program
 
 Save this as `hello.lkey`:

@@ -44,3 +44,11 @@ struct Variable : Expr {
 
     Variable(Token name) : name(name) {}
 };
+
+struct Call : Expr {
+    std::unique_ptr<Expr> callee;
+    std::vector<std::unique_ptr<Expr>> arguments;
+
+    Call(std::unique_ptr<Expr> callee, std::vector<std::unique_ptr<Expr>> arguments)
+        : callee(std::move(callee)), arguments(std::move(arguments)) {}
+};

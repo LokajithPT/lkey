@@ -26,6 +26,10 @@ Lexer::Lexer(const std::string &source) : source(source) {
     keywords["from"] = TokenType::FROM;
     keywords["to"] = TokenType::TO;
     
+    keywords["how"] = TokenType::HOW;
+    keywords["so"] = TokenType::SO;
+    keywords["thas"] = TokenType::THAS;
+    
     keywords["var"] = TokenType::VAR;
     keywords["is"] = TokenType::IS;
     keywords["read"] = TokenType::READ;

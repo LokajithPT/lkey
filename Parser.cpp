@@ -17,10 +17,37 @@ std::vector<std::unique_ptr<Stmt>> Parser::parse() {
 }
 
 std::unique_ptr<Stmt> Parser::declaration() {
+  if (match({TokenType::HOW})) {
+      return functionDeclaration("function");
+  }
   if (match({TokenType::VAR})) {
       return varDeclaration();
   }
   return statement();
+}
+
+std::unique_ptr<Stmt> Parser::functionDeclaration(std::string kind) {
+    consume(TokenType::TO, "Expected 'to' after 'how'.");
+    Token name = consume(TokenType::IDENTIFIER, "Expected " + kind + " name.");
+    
+    std::vector<Token> params;
+    if (match({TokenType::WITH})) {
+        do {
+            params.push_back(consume(TokenType::IDENTIFIER, "Expected parameter name."));
+        } while (match({TokenType::COMMA}));
+    }
+    
+    consume(TokenType::SO, "Expected 'so' before " + kind + " body.");
+    
+    std::vector<std::unique_ptr<Stmt>> body;
+    while (!check(TokenType::THAS) && !isAtEnd()) {
+        body.push_back(declaration());
+    }
+    
+    consume(TokenType::THAS, "Expected 'thas' after " + kind + " body.");
+    consume(TokenType::HOW, "Expected 'how' after 'thas'.");
+    
+    return std::make_unique<Function>(name, params, std::move(body));
 }
 
 std::unique_ptr<Stmt> Parser::varDeclaration() {
@@ -268,7 +295,28 @@ std::unique_ptr<Expr> Parser::unary() {
     return std::make_unique<Unary>(op, std::move(right));
   }
 
-  return primary();
+  return call();
+}
+
+std::unique_ptr<Expr> Parser::call() {
+  std::unique_ptr<Expr> expr = primary();
+
+  while (true) {
+    if (match({TokenType::LPAREN})) {
+      std::vector<std::unique_ptr<Expr>> arguments;
+      if (!check(TokenType::RPAREN)) {
+        do {
+            arguments.push_back(expression());
+        } while (match({TokenType::COMMA}));
+      }
+      consume(TokenType::RPAREN, "Expected ')' after arguments.");
+      expr = std::make_unique<Call>(std::move(expr), std::move(arguments));
+    } else {
+      break;
+    }
+  }
+
+  return expr;
 }
 
 std::unique_ptr<Expr> Parser::primary() {

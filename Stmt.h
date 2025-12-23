@@ -60,3 +60,13 @@ struct Block : Stmt {
     Block(std::vector<std::unique_ptr<Stmt>> statements) 
         : statements(std::move(statements)) {}
 };
+
+// Function declaration
+struct Function : Stmt {
+    Token name;
+    std::vector<Token> params;
+    std::vector<std::unique_ptr<Stmt>> body;
+
+    Function(Token name, std::vector<Token> params, std::vector<std::unique_ptr<Stmt>> body)
+        : name(name), params(params), body(std::move(body)) {}
+};

@@ -13,18 +13,25 @@
 // Represents the runtime environment (variables and their values)
 class Environment {
 private:
-    std::map<std::string, std::any> values; // Maps variable names (string) to their runtime values (std::any)
+    std::map<std::string, std::any> values;
+    Environment* enclosing;
 
 public:
+    Environment() : enclosing(nullptr) {}
+    Environment(Environment* enclosing) : enclosing(enclosing) {}
+
     // Define a new variable in the current environment
     void define(const std::string& name, std::any value) {
         values[name] = value;
     }
 
-    // Get the value of a variable from the current environment
+    // Get the value of a variable from the current environment or enclosing ones
     std::any get(const Token& name) {
         if (values.count(name.lexeme)) {
             return values[name.lexeme];
+        }
+        if (enclosing != nullptr) {
+            return enclosing->get(name);
         }
         throw std::runtime_error("Undefined variable '" + name.lexeme + "' at line " + std::to_string(name.line) + ".");
     }
@@ -35,17 +42,27 @@ public:
             values[name.lexeme] = value;
             return;
         }
+        if (enclosing != nullptr) {
+            enclosing->assign(name, value);
+            return;
+        }
         throw std::runtime_error("Undefined variable '" + name.lexeme + "' at line " + std::to_string(name.line) + ".");
     }
 };
 
 class Interpreter {
 public:
+    Interpreter() : environment(&globals) {}
+
     // Main interpretation function
     void interpret(const std::vector<std::unique_ptr<Stmt>>& statements);
+    
+    // Execute a block of statements with a specific environment
+    void executeBlock(const std::vector<std::unique_ptr<Stmt>>& statements, Environment* newEnvironment);
 
 private:
-    Environment environment; // The current runtime environment
+    Environment globals;
+    Environment* environment; // The current runtime environment
 
     // Execute a single statement
     void execute(const Stmt& stmt);
