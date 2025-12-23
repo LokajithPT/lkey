@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lkeycpp.dir/link.d"
+  "CMakeFiles/lkeycpp.dir/Interpreter.cpp.o"
+  "CMakeFiles/lkeycpp.dir/Interpreter.cpp.o.d"
   "CMakeFiles/lkeycpp.dir/Lexer.cpp.o"
   "CMakeFiles/lkeycpp.dir/Lexer.cpp.o.d"
   "CMakeFiles/lkeycpp.dir/Parser.cpp.o"

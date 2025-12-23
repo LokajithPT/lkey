@@ -1,6 +1,8 @@
-CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
- /usr/include/stdc-predef.h /home/skedaddle/code/lkeycpp/Lexer.h \
- /home/skedaddle/code/lkeycpp/Token.h /usr/include/c++/15.2.1/string \
+CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: \
+ /home/skedaddle/code/lkeycpp/Interpreter.cpp /usr/include/stdc-predef.h \
+ /home/skedaddle/code/lkeycpp/Interpreter.h \
+ /home/skedaddle/code/lkeycpp/Expr.h /home/skedaddle/code/lkeycpp/Token.h \
+ /usr/include/c++/15.2.1/string \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -106,15 +108,7 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
  /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/15.2.1/bits/stl_vector.h \
  /usr/include/c++/15.2.1/bits/stl_bvector.h \
- /usr/include/c++/15.2.1/bits/vector.tcc /usr/include/c++/15.2.1/map \
- /usr/include/c++/15.2.1/bits/stl_tree.h \
- /usr/include/c++/15.2.1/ext/aligned_buffer.h \
- /usr/include/c++/15.2.1/bits/node_handle.h \
- /usr/include/c++/15.2.1/bits/stl_map.h \
- /usr/include/c++/15.2.1/bits/stl_multimap.h \
- /usr/include/c++/15.2.1/bits/erase_if.h \
- /home/skedaddle/code/lkeycpp/Parser.h \
- /home/skedaddle/code/lkeycpp/Expr.h /usr/include/c++/15.2.1/memory \
+ /usr/include/c++/15.2.1/bits/vector.tcc /usr/include/c++/15.2.1/memory \
  /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
  /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/15.2.1/bits/align.h \
@@ -123,6 +117,7 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
  /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
  /usr/include/c++/15.2.1/typeinfo \
  /usr/include/c++/15.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/15.2.1/ext/aligned_buffer.h \
  /usr/include/c++/15.2.1/ext/atomicity.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h \
@@ -152,8 +147,12 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
  /usr/include/c++/15.2.1/backward/auto_ptr.h \
  /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/15.2.1/pstl/execution_defs.h \
- /home/skedaddle/code/lkeycpp/Stmt.h \
- /home/skedaddle/code/lkeycpp/Interpreter.h /usr/include/c++/15.2.1/any \
+ /home/skedaddle/code/lkeycpp/Stmt.h /usr/include/c++/15.2.1/map \
+ /usr/include/c++/15.2.1/bits/stl_tree.h \
+ /usr/include/c++/15.2.1/bits/node_handle.h \
+ /usr/include/c++/15.2.1/bits/stl_map.h \
+ /usr/include/c++/15.2.1/bits/stl_multimap.h \
+ /usr/include/c++/15.2.1/bits/erase_if.h /usr/include/c++/15.2.1/any \
  /usr/include/c++/15.2.1/iostream /usr/include/c++/15.2.1/ostream \
  /usr/include/c++/15.2.1/bits/ostream.h /usr/include/c++/15.2.1/ios \
  /usr/include/c++/15.2.1/bits/ios_base.h \
@@ -173,5 +172,26 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
  /usr/include/c++/15.2.1/bits/locale_facets.tcc \
  /usr/include/c++/15.2.1/bits/basic_ios.tcc \
  /usr/include/c++/15.2.1/bits/ostream.tcc /usr/include/c++/15.2.1/istream \
- /usr/include/c++/15.2.1/bits/istream.tcc /usr/include/c++/15.2.1/sstream \
- /usr/include/c++/15.2.1/bits/sstream.tcc
+ /usr/include/c++/15.2.1/bits/istream.tcc /usr/include/c++/15.2.1/variant \
+ /usr/include/c++/15.2.1/bits/enable_special_members.h \
+ /usr/include/c++/15.2.1/bits/monostate.h \
+ /usr/include/c++/15.2.1/bits/parse_numbers.h \
+ /usr/include/c++/15.2.1/cmath /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
+ /usr/include/bits/fp-fast.h /usr/include/bits/mathcalls-macros.h \
+ /usr/include/bits/mathcalls-helper-functions.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
+ /usr/include/bits/iscanonical.h /usr/include/c++/15.2.1/bits/specfun.h \
+ /usr/include/c++/15.2.1/limits /usr/include/c++/15.2.1/tr1/gamma.tcc \
+ /usr/include/c++/15.2.1/tr1/special_function_util.h \
+ /usr/include/c++/15.2.1/tr1/bessel_function.tcc \
+ /usr/include/c++/15.2.1/tr1/beta_function.tcc \
+ /usr/include/c++/15.2.1/tr1/ell_integral.tcc \
+ /usr/include/c++/15.2.1/tr1/exp_integral.tcc \
+ /usr/include/c++/15.2.1/tr1/hypergeometric.tcc \
+ /usr/include/c++/15.2.1/tr1/legendre_function.tcc \
+ /usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
+ /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
+ /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc
