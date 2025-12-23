@@ -29,7 +29,7 @@ enum class TokenType {
   TO,
   HOW,
   SO,
-  THAS,
+  THATS,
   READ,
   SAY,
 

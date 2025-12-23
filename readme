@@ -140,13 +140,13 @@ with i from 1 to 3 then
 Functions are first-class citizens in Lowkey.
 
 **Definition:**
-Use `how to` to define a function, `with` for parameters, and `thas how` to end it.
+Use `how to` to define a function, `with` for parameters, and `thats how` to end it.
 
 ```lowkey
 how to greet with name, age so
     say "Hello " plus name
     say "Age: " plus age
-thas how
+thats how
 ```
 
 **Calling:**

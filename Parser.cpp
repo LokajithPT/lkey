@@ -40,12 +40,12 @@ std::unique_ptr<Stmt> Parser::functionDeclaration(std::string kind) {
     consume(TokenType::SO, "Expected 'so' before " + kind + " body.");
     
     std::vector<std::unique_ptr<Stmt>> body;
-    while (!check(TokenType::THAS) && !isAtEnd()) {
+    while (!check(TokenType::THATS) && !isAtEnd()) {
         body.push_back(declaration());
     }
     
-    consume(TokenType::THAS, "Expected 'thas' after " + kind + " body.");
-    consume(TokenType::HOW, "Expected 'how' after 'thas'.");
+    consume(TokenType::THATS, "Expected 'thats' after " + kind + " body.");
+    consume(TokenType::HOW, "Expected 'how' after 'thats'.");
     
     return std::make_unique<Function>(name, params, std::move(body));
 }
