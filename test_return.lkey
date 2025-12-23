@@ -1,0 +1,6 @@
+how to square with x so
+    please give x into x
+thats how
+
+read num as "Enter a number to square: "
+say "Square is " plus square(num)

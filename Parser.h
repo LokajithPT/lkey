@@ -25,6 +25,8 @@ private:
   std::unique_ptr<Stmt> statement();
   std::unique_ptr<Stmt> ifStatement();
   std::unique_ptr<Stmt> withStatement();
+  std::unique_ptr<Stmt> readStatement();
+  std::unique_ptr<Stmt> returnStatement();
   std::unique_ptr<Stmt> printStatement();
   std::unique_ptr<Stmt> expressionStatement();
 

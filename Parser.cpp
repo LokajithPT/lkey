@@ -61,6 +61,12 @@ std::unique_ptr<Stmt> Parser::statement() {
     if (match({TokenType::SAY})) {
         return printStatement();
     }
+    if (match({TokenType::READ})) {
+        return readStatement();
+    }
+    if (check(TokenType::PLEASE)) {
+        return returnStatement();
+    }
     if (check(TokenType::WHEN)) {
         return ifStatement();
     }
@@ -143,6 +149,30 @@ std::unique_ptr<Stmt> Parser::withStatement() {
         
         return std::make_unique<While>(std::move(condition), std::move(body));
     }
+}
+
+std::unique_ptr<Stmt> Parser::readStatement() {
+    Token name = consume(TokenType::IDENTIFIER, "Expected variable name after 'read'.");
+    std::unique_ptr<Expr> prompt = nullptr;
+    
+    if (match({TokenType::AS})) {
+        prompt = expression();
+    }
+    
+    return std::make_unique<Read>(name, std::move(prompt));
+}
+
+std::unique_ptr<Stmt> Parser::returnStatement() {
+    consume(TokenType::PLEASE, "Expected 'please'.");
+    consume(TokenType::GIVE, "Expected 'give' after 'please'.");
+    
+    std::unique_ptr<Expr> value = nullptr;
+    if (check(TokenType::NUMBER) || check(TokenType::STRING) || check(TokenType::IDENTIFIER) || 
+        check(TokenType::LPAREN) || check(TokenType::MINUS) || check(TokenType::NOT)) {
+        value = expression();
+    }
+    
+    return std::make_unique<Return>(std::move(value));
 }
 
 std::unique_ptr<Stmt> Parser::ifStatement() {

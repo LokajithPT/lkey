@@ -30,9 +30,13 @@ Lexer::Lexer(const std::string &source) : source(source) {
     keywords["so"] = TokenType::SO;
     keywords["thats"] = TokenType::THATS;
     
+    keywords["please"] = TokenType::PLEASE;
+    keywords["give"] = TokenType::GIVE;
+    
     keywords["var"] = TokenType::VAR;
     keywords["is"] = TokenType::IS;
     keywords["read"] = TokenType::READ;
+    keywords["as"] = TokenType::AS;
     keywords["say"] = TokenType::SAY;
 }
 

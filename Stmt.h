@@ -17,6 +17,23 @@ struct Print : Stmt {
         : expression(std::move(expression)) {}
 };
 
+// 'read name' or 'read name as "prompt"'
+struct Read : Stmt {
+    Token name;
+    std::unique_ptr<Expr> prompt;
+
+    Read(Token name, std::unique_ptr<Expr> prompt) 
+        : name(name), prompt(std::move(prompt)) {}
+};
+
+// 'please give value'
+struct Return : Stmt {
+    std::unique_ptr<Expr> value;
+
+    Return(std::unique_ptr<Expr> value) 
+        : value(std::move(value)) {}
+};
+
 // 'var name is value'
 struct Var : Stmt {
     Token name;

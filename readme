@@ -59,7 +59,15 @@ say 123
 say "Your age is " plus age
 ```
 
-### 3. Math Operations
+### 3. Input
+Use `read` to get user input. Can optionally include a prompt string.
+
+```lowkey
+read name
+read age as "Enter your age: "
+```
+
+### 4. Math Operations
 Lowkey uses words for math operators.
 
 | Keyword | Symbol | Example |
@@ -70,7 +78,7 @@ Lowkey uses words for math operators.
 | `div` | `/` | `10 div 5` |
 | `reminder`| `%` | `10 reminder 3` |
 
-### 4. Comparisons & Logic
+### 5. Comparisons & Logic
 Boolean expressions are readable and explicit.
 
 | Keyword | Symbol | Example |
@@ -82,7 +90,7 @@ Boolean expressions are readable and explicit.
 | `or` | `\|\|` | `A or B` |
 | `not` | `!` | `not (age greater than 18)` |
 
-### 5. Control Flow (Conditionals)
+### 6. Control Flow (Conditionals)
 Use `when` ... `then` for if-statements. You can chain conditions (like `else if`) using a comma `,` and handle the "else" case with `when nothing`.
 
 **Syntax:**
@@ -105,7 +113,7 @@ when nothing then
     say "Kid".
 ```
 
-### 6. Loops
+### 7. Loops
 Lowkey supports iteration using the `with` keyword.
 
 **For Loop (Range):**
@@ -136,16 +144,18 @@ with i from 1 to 3 then
     say i.
 ```
 
-### 7. Functions
+### 8. Functions
 Functions are first-class citizens in Lowkey.
 
 **Definition:**
 Use `how to` to define a function, `with` for parameters, and `thats how` to end it.
+Use `please give` to return a value.
 
 ```lowkey
 how to greet with name, age so
     say "Hello " plus name
     say "Age: " plus age
+    please give true
 thats how
 ```
 
@@ -162,7 +172,7 @@ Save this as `hello.lkey`:
 ```lowkey
 # A simple counting program
 
-var limit is 5
+read limit as "Enter counting limit: "
 say "Counting to " plus limit
 
 with i from 1 to limit then

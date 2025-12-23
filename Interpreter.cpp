@@ -6,6 +6,12 @@
 #include <variant>
 #include <cmath>
 
+// Exception for return statements
+struct ReturnException {
+    std::any value;
+    ReturnException(std::any value) : value(value) {}
+};
+
 // --- Interpreter methods ---
 
 void Interpreter::interpret(const std::vector<std::unique_ptr<Stmt>>& statements) {
@@ -36,12 +42,39 @@ void Interpreter::execute(const Stmt& stmt) {
     if (const Print* printStmt = dynamic_cast<const Print*>(&stmt)) {
         std::any value = evaluate(*printStmt->expression);
         std::cout << stringify(value) << std::endl;
+    } else if (const Read* readStmt = dynamic_cast<const Read*>(&stmt)) {
+        if (readStmt->prompt) {
+             std::any val = evaluate(*readStmt->prompt);
+             std::cout << stringify(val);
+        }
+        
+        std::string input;
+        std::getline(std::cin, input);
+        
+        // Auto-detect number
+        try {
+            size_t idx;
+            double d = std::stod(input, &idx);
+            if (idx == input.length()) {
+                environment->define(readStmt->name.lexeme, d);
+            } else {
+                environment->define(readStmt->name.lexeme, input);
+            }
+        } catch (...) {
+            environment->define(readStmt->name.lexeme, input);
+        }
     } else if (const Var* varStmt = dynamic_cast<const Var*>(&stmt)) {
         std::any value = evaluate(*varStmt->initializer);
         environment->define(varStmt->name.lexeme, value);
     } else if (const Function* funcStmt = dynamic_cast<const Function*>(&stmt)) {
         // Store the function AST node in the environment
         environment->define(funcStmt->name.lexeme, funcStmt);
+    } else if (const Return* returnStmt = dynamic_cast<const Return*>(&stmt)) {
+        std::any value = std::any(); // Default to null/void
+        if (returnStmt->value) {
+            value = evaluate(*returnStmt->value);
+        }
+        throw ReturnException(value);
     } else if (const Expression* exprStmt = dynamic_cast<const Expression*>(&stmt)) {
         evaluate(*exprStmt->expression);
     } else if (const If* ifStmt = dynamic_cast<const If*>(&stmt)) {
@@ -101,7 +134,12 @@ std::any Interpreter::evaluate(const Expr& expr) {
             fnEnv->define(function->params[i].lexeme, evaluate(*call->arguments[i]));
         }
         
-        executeBlock(function->body, fnEnv);
+        try {
+            executeBlock(function->body, fnEnv);
+        } catch (const ReturnException& returnValue) {
+            delete fnEnv;
+            return returnValue.value;
+        }
         delete fnEnv;
         
         return std::any(); // Void return

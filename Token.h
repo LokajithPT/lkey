@@ -30,7 +30,10 @@ enum class TokenType {
   HOW,
   SO,
   THATS,
+  PLEASE,
+  GIVE,
   READ,
+  AS,
   SAY,
 
   IDENTIFIER,
