@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++   -std=gnu++17 -o CMakeFiles/lkeycpp.dir/main.cpp.o -c /home/skedaddle/code/lkeycpp/main.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/main.cpp",
+  "output": "CMakeFiles/lkeycpp.dir/main.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++   -std=gnu++17 -o CMakeFiles/lkeycpp.dir/Lexer.cpp.o -c /home/skedaddle/code/lkeycpp/Lexer.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/Lexer.cpp",
+  "output": "CMakeFiles/lkeycpp.dir/Lexer.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++   -std=gnu++17 -o CMakeFiles/lkeycpp.dir/Parser.cpp.o -c /home/skedaddle/code/lkeycpp/Parser.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/Parser.cpp",
+  "output": "CMakeFiles/lkeycpp.dir/Parser.cpp.o"
+}
+]

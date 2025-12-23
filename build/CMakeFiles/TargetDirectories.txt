@@ -1,0 +1,3 @@
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/lkeycpp.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/edit_cache.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/rebuild_cache.dir

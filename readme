@@ -1,0 +1,202 @@
+# Lowkey Programming Language
+
+A simple, readable programming language that focuses on clarity and expressiveness.
+
+## Overview
+
+Lowkey is designed to be intuitive and human-readable. Instead of cryptic symbols, it uses natural language keywords that make code self-documenting and easy to understand.
+
+## Features
+
+- **Variables**: `var name is value`
+- **Math Operations**: `plus`, `minus`, `into`, `div`, `reminder`
+- **Comparisons**: `greater than`, `lesser than`, `equal to`, `not equal to`
+- **Logic**: `and`, `or`, `not`
+- **Conditionals**: `when/then/nothing` flow control
+- **Input/Output**: `read` and `say` for interactive programs
+- **Files**: Execute `.lkey` source files
+- **Comments**: Lines starting with `#`
+
+## Syntax Guide
+
+### Variables
+
+```lowkey
+var name is "Alice"
+var age is 25
+var score is 100
+```
+
+### Math Operations
+
+```lowkey
+var sum is 10 plus 5
+var diff is 20 minus 8
+var product is 6 into 7
+var quotient is 15 div 3
+var remainder is reminder 17 5
+```
+
+### Input/Output
+
+**Simple input:**
+```lowkey
+read name
+```
+
+**Input with prompt:**
+```lowkey
+read name as "Enter your name: "
+```
+
+**Output:**
+```lowkey
+say "Hello world"
+say "Your name is " plus name
+```
+
+### Conditional Logic
+
+**Basic if statement:**
+```lowkey
+when (score greater than 50) then
+    var status is "pass".
+```
+
+**If-elif-else chain:**
+```lowkey
+when (score greater than 80) then
+    var grade is "A",
+when (score greater than 60) then
+    var grade is "B",
+when nothing then
+    var grade is "C".
+```
+
+**Complex conditions:**
+```lowkey
+when (age greater than 18 and score greater than 50) then
+    var eligible is true,
+when (age lesser than 18 or score lesser than 30) then
+    var eligible is false.
+```
+
+**Negation:**
+```lowkey
+when (not (score greater than 50)) then
+    var status is "needs improvement".
+```
+
+## Complete Example
+
+```lowkey
+# Interactive greeting program
+read name as "What's your name: "
+read age as "How old are you: "
+
+say "Hello " plus name plus "!"
+
+when (age greater than 18) then
+    say "You are an adult",
+when (age greater than 13) then
+    say "You are a teenager",
+when nothing then
+    say "You are a child".
+
+# Math with user input
+read score as "Enter your score: "
+
+when (score greater than 90) then
+    var grade is "A",
+when (score greater than 80 and score lesser than 90) then
+    var grade is "B",
+when (score greater than 70 and score lesser than 80) then
+    var grade is "C",
+when nothing then
+    var grade is "D".
+
+say "Your grade is " plus grade
+var doubled is score into 2
+say "Double your score is " plus doubled
+```
+
+## Running Lowkey
+
+Compile your Lowkey program:
+```bash
+cargo build --release
+```
+
+Execute a `.lkey` file:
+```bash
+./target/release/lowkey program.lkey
+```
+
+## Language Philosophy
+
+Lowkey follows these principles:
+
+1. **Readability First**: Code should read like English
+2. **Minimal Symbols**: Replace `>`, `<`, `&&`, `||` with clear words
+3. **Explicit Control Flow**: `when/then/nothing` makes intent clear
+4. **Type Safety**: Clear separation between numbers, strings, and logic
+5. **Simplicity**: Focus on essential features without unnecessary complexity
+
+## Comparison to Traditional Languages
+
+Instead of:
+```javascript
+let name = prompt("Enter name: ");
+console.log("Hello " + name);
+```
+
+Lowkey writes:
+```lowkey
+read name as "Enter name: "
+say "Hello " plus name
+```
+
+Instead of:
+```javascript
+if (score > 50 && age > 18) {
+    grade = "A";
+} else {
+    grade = "B";
+}
+```
+
+Lowkey writes:
+```lowkey
+when (score greater than 50 and age greater than 18) then
+    var grade is "A",
+when nothing then
+    var grade is "B".
+```
+
+The Lowkey version is self-documenting and requires no programming background to understand.
+
+## Error Messages
+
+Lowkey provides clear, helpful error messages:
+- `"Expected 'is' after variable name"`
+- `"Unclosed parenthesis in condition"`
+- `"Undefined variable: score"`
+
+## Building from Source
+
+```bash
+git clone <repository>
+cd lowkey
+cargo build --release
+```
+
+## Contributing
+
+Lowkey is intentionally minimal. Contributions should maintain:
+- Readability and clarity
+- Natural language approach
+- Simplicity over complexity
+
+## License
+
+M

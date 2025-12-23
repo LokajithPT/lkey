@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/lkeycpp.dir/link.d CMakeFiles/lkeycpp.dir/main.cpp.o CMakeFiles/lkeycpp.dir/Lexer.cpp.o CMakeFiles/lkeycpp.dir/Parser.cpp.o -o lkeycpp
