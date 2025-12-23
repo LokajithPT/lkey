@@ -13,6 +13,7 @@ Lowkey is designed to be intuitive and human-readable. Instead of cryptic symbol
 - **Comparisons**: `greater than`, `lesser than`, `equal to`, `not equal to`
 - **Logic**: `and`, `or`, `not`
 - **Conditionals**: `when/then/nothing` flow control
+- **Loops**: `with ... then` for iteration
 - **Input/Output**: `read` and `say` for interactive programs
 - **Files**: Execute `.lkey` source files
 - **Comments**: Lines starting with `#`
@@ -85,6 +86,24 @@ when (age lesser than 18 or score lesser than 30) then
 ```lowkey
 when (not (score greater than 50)) then
     var status is "needs improvement".
+```
+
+### Loops
+
+**For Loop:**
+Iterate from a start value to an end value (inclusive).
+```lowkey
+with i from 1 to 5 then
+    say i.
+```
+
+**While Loop:**
+Repeat while a condition is true.
+```lowkey
+var x is 5
+with (x greater than 0) then
+    say x
+    var x is x minus 1.
 ```
 
 ## Complete Example
@@ -199,4 +218,4 @@ Lowkey is intentionally minimal. Contributions should maintain:
 
 ## License
 
-M
+MIT
