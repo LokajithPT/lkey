@@ -41,6 +41,12 @@ If no file is provided, it prints usage information.
 
 ## 📘 Language Reference
 
+### 0. Comments 
+unlike any other language for u to make a comment u have to say 
+comment this is a comment 
+
+this will make it a comment 
+
 ### 1. Variables
 Variables are declared using `var` and `is`. They are dynamically typed.
 
