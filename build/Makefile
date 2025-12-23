@@ -129,101 +129,101 @@ lkeycpp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/build
 .PHONY : lkeycpp/fast
 
-Interpreter.o: Interpreter.cpp.o
-.PHONY : Interpreter.o
+src/Interpreter.o: src/Interpreter.cpp.o
+.PHONY : src/Interpreter.o
 
 # target to build an object file
-Interpreter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Interpreter.cpp.o
-.PHONY : Interpreter.cpp.o
+src/Interpreter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o
+.PHONY : src/Interpreter.cpp.o
 
-Interpreter.i: Interpreter.cpp.i
-.PHONY : Interpreter.i
+src/Interpreter.i: src/Interpreter.cpp.i
+.PHONY : src/Interpreter.i
 
 # target to preprocess a source file
-Interpreter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Interpreter.cpp.i
-.PHONY : Interpreter.cpp.i
+src/Interpreter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.i
+.PHONY : src/Interpreter.cpp.i
 
-Interpreter.s: Interpreter.cpp.s
-.PHONY : Interpreter.s
+src/Interpreter.s: src/Interpreter.cpp.s
+.PHONY : src/Interpreter.s
 
 # target to generate assembly for a file
-Interpreter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Interpreter.cpp.s
-.PHONY : Interpreter.cpp.s
+src/Interpreter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.s
+.PHONY : src/Interpreter.cpp.s
 
-Lexer.o: Lexer.cpp.o
-.PHONY : Lexer.o
+src/Lexer.o: src/Lexer.cpp.o
+.PHONY : src/Lexer.o
 
 # target to build an object file
-Lexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Lexer.cpp.o
-.PHONY : Lexer.cpp.o
+src/Lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o
+.PHONY : src/Lexer.cpp.o
 
-Lexer.i: Lexer.cpp.i
-.PHONY : Lexer.i
+src/Lexer.i: src/Lexer.cpp.i
+.PHONY : src/Lexer.i
 
 # target to preprocess a source file
-Lexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Lexer.cpp.i
-.PHONY : Lexer.cpp.i
+src/Lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.i
+.PHONY : src/Lexer.cpp.i
 
-Lexer.s: Lexer.cpp.s
-.PHONY : Lexer.s
+src/Lexer.s: src/Lexer.cpp.s
+.PHONY : src/Lexer.s
 
 # target to generate assembly for a file
-Lexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Lexer.cpp.s
-.PHONY : Lexer.cpp.s
+src/Lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.s
+.PHONY : src/Lexer.cpp.s
 
-Parser.o: Parser.cpp.o
-.PHONY : Parser.o
+src/Parser.o: src/Parser.cpp.o
+.PHONY : src/Parser.o
 
 # target to build an object file
-Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Parser.cpp.o
-.PHONY : Parser.cpp.o
+src/Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.o
+.PHONY : src/Parser.cpp.o
 
-Parser.i: Parser.cpp.i
-.PHONY : Parser.i
+src/Parser.i: src/Parser.cpp.i
+.PHONY : src/Parser.i
 
 # target to preprocess a source file
-Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Parser.cpp.i
-.PHONY : Parser.cpp.i
+src/Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.i
+.PHONY : src/Parser.cpp.i
 
-Parser.s: Parser.cpp.s
-.PHONY : Parser.s
+src/Parser.s: src/Parser.cpp.s
+.PHONY : src/Parser.s
 
 # target to generate assembly for a file
-Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/Parser.cpp.s
-.PHONY : Parser.cpp.s
+src/Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.s
+.PHONY : src/Parser.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -234,18 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lkeycpp"
-	@echo "... Interpreter.o"
-	@echo "... Interpreter.i"
-	@echo "... Interpreter.s"
-	@echo "... Lexer.o"
-	@echo "... Lexer.i"
-	@echo "... Lexer.s"
-	@echo "... Parser.o"
-	@echo "... Parser.i"
-	@echo "... Parser.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/Interpreter.o"
+	@echo "... src/Interpreter.i"
+	@echo "... src/Interpreter.s"
+	@echo "... src/Lexer.o"
+	@echo "... src/Lexer.i"
+	@echo "... src/Lexer.s"
+	@echo "... src/Parser.o"
+	@echo "... src/Parser.i"
+	@echo "... src/Parser.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

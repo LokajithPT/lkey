@@ -72,76 +72,76 @@ include CMakeFiles/lkeycpp.dir/flags.make
 CMakeFiles/lkeycpp.dir/codegen:
 .PHONY : CMakeFiles/lkeycpp.dir/codegen
 
-CMakeFiles/lkeycpp.dir/main.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
-CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp
-CMakeFiles/lkeycpp.dir/main.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lkeycpp.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/main.cpp.o -MF CMakeFiles/lkeycpp.dir/main.cpp.o.d -o CMakeFiles/lkeycpp.dir/main.cpp.o -c /home/skedaddle/code/lkeycpp/main.cpp
+CMakeFiles/lkeycpp.dir/src/main.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
+CMakeFiles/lkeycpp.dir/src/main.cpp.o: /home/skedaddle/code/lkeycpp/src/main.cpp
+CMakeFiles/lkeycpp.dir/src/main.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lkeycpp.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/src/main.cpp.o -MF CMakeFiles/lkeycpp.dir/src/main.cpp.o.d -o CMakeFiles/lkeycpp.dir/src/main.cpp.o -c /home/skedaddle/code/lkeycpp/src/main.cpp
 
-CMakeFiles/lkeycpp.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/main.cpp > CMakeFiles/lkeycpp.dir/main.cpp.i
+CMakeFiles/lkeycpp.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/src/main.cpp > CMakeFiles/lkeycpp.dir/src/main.cpp.i
 
-CMakeFiles/lkeycpp.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/main.cpp -o CMakeFiles/lkeycpp.dir/main.cpp.s
+CMakeFiles/lkeycpp.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/src/main.cpp -o CMakeFiles/lkeycpp.dir/src/main.cpp.s
 
-CMakeFiles/lkeycpp.dir/Lexer.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
-CMakeFiles/lkeycpp.dir/Lexer.cpp.o: /home/skedaddle/code/lkeycpp/Lexer.cpp
-CMakeFiles/lkeycpp.dir/Lexer.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lkeycpp.dir/Lexer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/Lexer.cpp.o -MF CMakeFiles/lkeycpp.dir/Lexer.cpp.o.d -o CMakeFiles/lkeycpp.dir/Lexer.cpp.o -c /home/skedaddle/code/lkeycpp/Lexer.cpp
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o: /home/skedaddle/code/lkeycpp/src/Lexer.cpp
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o -MF CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o.d -o CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o -c /home/skedaddle/code/lkeycpp/src/Lexer.cpp
 
-CMakeFiles/lkeycpp.dir/Lexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/Lexer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/Lexer.cpp > CMakeFiles/lkeycpp.dir/Lexer.cpp.i
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/src/Lexer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/src/Lexer.cpp > CMakeFiles/lkeycpp.dir/src/Lexer.cpp.i
 
-CMakeFiles/lkeycpp.dir/Lexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/Lexer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/Lexer.cpp -o CMakeFiles/lkeycpp.dir/Lexer.cpp.s
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/src/Lexer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/src/Lexer.cpp -o CMakeFiles/lkeycpp.dir/src/Lexer.cpp.s
 
-CMakeFiles/lkeycpp.dir/Parser.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
-CMakeFiles/lkeycpp.dir/Parser.cpp.o: /home/skedaddle/code/lkeycpp/Parser.cpp
-CMakeFiles/lkeycpp.dir/Parser.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lkeycpp.dir/Parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/Parser.cpp.o -MF CMakeFiles/lkeycpp.dir/Parser.cpp.o.d -o CMakeFiles/lkeycpp.dir/Parser.cpp.o -c /home/skedaddle/code/lkeycpp/Parser.cpp
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.o: /home/skedaddle/code/lkeycpp/src/Parser.cpp
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lkeycpp.dir/src/Parser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/src/Parser.cpp.o -MF CMakeFiles/lkeycpp.dir/src/Parser.cpp.o.d -o CMakeFiles/lkeycpp.dir/src/Parser.cpp.o -c /home/skedaddle/code/lkeycpp/src/Parser.cpp
 
-CMakeFiles/lkeycpp.dir/Parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/Parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/Parser.cpp > CMakeFiles/lkeycpp.dir/Parser.cpp.i
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/src/Parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/src/Parser.cpp > CMakeFiles/lkeycpp.dir/src/Parser.cpp.i
 
-CMakeFiles/lkeycpp.dir/Parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/Parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/Parser.cpp -o CMakeFiles/lkeycpp.dir/Parser.cpp.s
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/src/Parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/src/Parser.cpp -o CMakeFiles/lkeycpp.dir/src/Parser.cpp.s
 
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpreter.cpp
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lkeycpp.dir/Interpreter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/Interpreter.cpp.o -MF CMakeFiles/lkeycpp.dir/Interpreter.cpp.o.d -o CMakeFiles/lkeycpp.dir/Interpreter.cpp.o -c /home/skedaddle/code/lkeycpp/Interpreter.cpp
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o: CMakeFiles/lkeycpp.dir/flags.make
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/src/Interpreter.cpp
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o: CMakeFiles/lkeycpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/skedaddle/code/lkeycpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o -MF CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o.d -o CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o -c /home/skedaddle/code/lkeycpp/src/Interpreter.cpp
 
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/Interpreter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/Interpreter.cpp > CMakeFiles/lkeycpp.dir/Interpreter.cpp.i
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skedaddle/code/lkeycpp/src/Interpreter.cpp > CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.i
 
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/Interpreter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/Interpreter.cpp -o CMakeFiles/lkeycpp.dir/Interpreter.cpp.s
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skedaddle/code/lkeycpp/src/Interpreter.cpp -o CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.s
 
 # Object files for target lkeycpp
 lkeycpp_OBJECTS = \
-"CMakeFiles/lkeycpp.dir/main.cpp.o" \
-"CMakeFiles/lkeycpp.dir/Lexer.cpp.o" \
-"CMakeFiles/lkeycpp.dir/Parser.cpp.o" \
-"CMakeFiles/lkeycpp.dir/Interpreter.cpp.o"
+"CMakeFiles/lkeycpp.dir/src/main.cpp.o" \
+"CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o" \
+"CMakeFiles/lkeycpp.dir/src/Parser.cpp.o" \
+"CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o"
 
 # External object files for target lkeycpp
 lkeycpp_EXTERNAL_OBJECTS =
 
-lkeycpp: CMakeFiles/lkeycpp.dir/main.cpp.o
-lkeycpp: CMakeFiles/lkeycpp.dir/Lexer.cpp.o
-lkeycpp: CMakeFiles/lkeycpp.dir/Parser.cpp.o
-lkeycpp: CMakeFiles/lkeycpp.dir/Interpreter.cpp.o
+lkeycpp: CMakeFiles/lkeycpp.dir/src/main.cpp.o
+lkeycpp: CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o
+lkeycpp: CMakeFiles/lkeycpp.dir/src/Parser.cpp.o
+lkeycpp: CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o
 lkeycpp: CMakeFiles/lkeycpp.dir/build.make
 lkeycpp: CMakeFiles/lkeycpp.dir/compiler_depend.ts
 lkeycpp: CMakeFiles/lkeycpp.dir/link.txt

@@ -1,7 +1,9 @@
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: \
- /home/skedaddle/code/lkeycpp/Interpreter.cpp /usr/include/stdc-predef.h \
- /home/skedaddle/code/lkeycpp/Interpreter.h \
- /home/skedaddle/code/lkeycpp/Expr.h /home/skedaddle/code/lkeycpp/Token.h \
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o: \
+ /home/skedaddle/code/lkeycpp/src/Interpreter.cpp \
+ /usr/include/stdc-predef.h \
+ /home/skedaddle/code/lkeycpp/include/Interpreter.h \
+ /home/skedaddle/code/lkeycpp/include/Expr.h \
+ /home/skedaddle/code/lkeycpp/include/Token.h \
  /usr/include/c++/15.2.1/string \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -147,7 +149,7 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: \
  /usr/include/c++/15.2.1/backward/auto_ptr.h \
  /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/15.2.1/pstl/execution_defs.h \
- /home/skedaddle/code/lkeycpp/Stmt.h /usr/include/c++/15.2.1/map \
+ /home/skedaddle/code/lkeycpp/include/Stmt.h /usr/include/c++/15.2.1/map \
  /usr/include/c++/15.2.1/bits/stl_tree.h \
  /usr/include/c++/15.2.1/bits/node_handle.h \
  /usr/include/c++/15.2.1/bits/stl_map.h \

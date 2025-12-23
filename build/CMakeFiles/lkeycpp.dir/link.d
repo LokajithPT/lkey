@@ -2,10 +2,10 @@ lkeycpp: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
-  CMakeFiles/lkeycpp.dir/main.cpp.o \
-  CMakeFiles/lkeycpp.dir/Lexer.cpp.o \
-  CMakeFiles/lkeycpp.dir/Parser.cpp.o \
-  CMakeFiles/lkeycpp.dir/Interpreter.cpp.o \
+  CMakeFiles/lkeycpp.dir/src/main.cpp.o \
+  CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o \
+  CMakeFiles/lkeycpp.dir/src/Parser.cpp.o \
+  CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
@@ -40,13 +40,13 @@ lkeycpp: \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
-CMakeFiles/lkeycpp.dir/main.cpp.o:
+CMakeFiles/lkeycpp.dir/src/main.cpp.o:
 
-CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
+CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o:
 
-CMakeFiles/lkeycpp.dir/Parser.cpp.o:
+CMakeFiles/lkeycpp.dir/src/Parser.cpp.o:
 
-CMakeFiles/lkeycpp.dir/Interpreter.cpp.o:
+CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so:
 

@@ -1,9 +1,0 @@
-say "Testing While Loop with Assignment:"
-var x is 3
-with (x greater than 0) then
-    say x
-    x is x minus 1.
-
-say "Testing For Loop (Desugared):"
-with i from 1 to 3 then
-    say i.

@@ -1,0 +1,22 @@
+- arrays
+  -> var some is (1, 2, 3 )
+  or something like 
+  -> var some is ((1,2 ) , (2, 3 )) #2d arrays 
+
+- for each loop 
+   -> syntax will be like 
+
+      var name is "loki"
+
+      with name is w as words 
+          say w . 
+
+
+      with name is w as letter 
+          say w . 
+
+      when as words is mentions in a string all the words are taken one by one for every iteration 
+
+      when as letters is mentioned in a string all the letter are taken one by one for every iteration 
+
+
