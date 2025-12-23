@@ -148,7 +148,13 @@ void Interpreter::execute(const Stmt& stmt) {
 }
 
 std::any Interpreter::evaluate(const Expr& expr) {
-    if (const Literal* literal = dynamic_cast<const Literal*>(&expr)) {
+    if (const ArrayLiteral* array = dynamic_cast<const ArrayLiteral*>(&expr)) {
+        std::vector<std::any> elements;
+        for (const auto& el : array->elements) {
+            elements.push_back(evaluate(*el));
+        }
+        return elements;
+    } else if (const Literal* literal = dynamic_cast<const Literal*>(&expr)) {
         if (literal->type == TokenType::NUMBER) {
             return std::stod(literal->value);
         } else if (literal->type == TokenType::STRING) {
@@ -164,11 +170,50 @@ std::any Interpreter::evaluate(const Expr& expr) {
     } else if (const Call* call = dynamic_cast<const Call*>(&expr)) {
         std::any callee = evaluate(*call->callee);
         
+        if (callee.type() == typeid(std::vector<std::any>)) {
+            // Array Indexing
+            std::vector<std::any> vec = std::any_cast<std::vector<std::any>>(callee);
+            
+            if (call->arguments.empty()) {
+                 throw std::runtime_error("Expected index for array access.");
+            }
+            
+            // Handle multi-dimensional access logic if arguments > 1 (e.g. arr(0, 1))
+            // Or just single index per call arr(0)(1).
+            // Based on user prompt "some(0)" -> single index. 
+            // Let's support single index per parens for simplicity first, or multi-arg as multi-dim?
+            // "var some is ((1,2), (2,3))" -> 2D. 
+            // If I do some(0, 1), is that valid?
+            // Standard call syntax allows multiple args. 
+            // Let's implement multi-arg as drilling down: some(0, 1) == some[0][1].
+            
+            std::any result = callee;
+            for (const auto& argExpr : call->arguments) {
+                if (result.type() != typeid(std::vector<std::any>)) {
+                     throw std::runtime_error("Cannot index into non-array.");
+                }
+                std::vector<std::any> currentVec = std::any_cast<std::vector<std::any>>(result);
+                
+                std::any indexVal = evaluate(*argExpr);
+                if (indexVal.type() != typeid(double)) {
+                    throw std::runtime_error("Array index must be a number.");
+                }
+                
+                double dIndex = std::any_cast<double>(indexVal);
+                if (dIndex < 0 || dIndex >= currentVec.size() || dIndex != static_cast<long long>(dIndex)) {
+                     throw std::runtime_error("Array index out of bounds or invalid.");
+                }
+                
+                result = currentVec[static_cast<size_t>(dIndex)];
+            }
+            return result;
+        }
+
         const Function* function = nullptr;
         try {
             function = std::any_cast<const Function*>(callee);
         } catch (...) {
-            throw std::runtime_error("Can only call functions.");
+            throw std::runtime_error("Can only call functions or access arrays.");
         }
         
         if (call->arguments.size() != function->params.size()) {
@@ -287,5 +332,15 @@ std::string Interpreter::stringify(const std::any& value) {
     }
     if (value.type() == typeid(std::string)) return std::any_cast<std::string>(value);
     if (value.type() == typeid(bool)) return std::any_cast<bool>(value) ? "true" : "false";
+    if (value.type() == typeid(std::vector<std::any>)) {
+        std::vector<std::any> vec = std::any_cast<std::vector<std::any>>(value);
+        std::string result = "(";
+        for (size_t i = 0; i < vec.size(); ++i) {
+            result += stringify(vec[i]);
+            if (i < vec.size() - 1) result += ", ";
+        }
+        result += ")";
+        return result;
+    }
     return "UNKNOWN_TYPE";
 }

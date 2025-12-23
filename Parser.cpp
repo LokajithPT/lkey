@@ -413,7 +413,27 @@ std::unique_ptr<Expr> Parser::primary() {
   }
 
   if (match({TokenType::LPAREN})) {
+    // Check for empty array '()'
+    if (check(TokenType::RPAREN)) {
+         advance(); // consume ')'
+         return std::make_unique<ArrayLiteral>(std::vector<std::unique_ptr<Expr>>{});
+    }
+
     std::unique_ptr<Expr> expr = expression();
+    
+    // If we see a comma, it's an array
+    if (check(TokenType::COMMA)) {
+        std::vector<std::unique_ptr<Expr>> elements;
+        elements.push_back(std::move(expr));
+        
+        while (match({TokenType::COMMA})) {
+            if (check(TokenType::RPAREN)) break; // trailing comma support (1,)
+            elements.push_back(expression());
+        }
+        consume(TokenType::RPAREN, "Expected ')' after array elements.");
+        return std::make_unique<ArrayLiteral>(std::move(elements));
+    }
+
     consume(TokenType::RPAREN, "Expected ')' after expression.");
     return expr;
   }

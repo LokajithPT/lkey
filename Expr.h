@@ -38,6 +38,13 @@ struct Literal : Expr {
         : value(value), type(type) {}
 };
 
+struct ArrayLiteral : Expr {
+    std::vector<std::unique_ptr<Expr>> elements;
+
+    ArrayLiteral(std::vector<std::unique_ptr<Expr>> elements)
+        : elements(std::move(elements)) {}
+};
+
 // Represents a variable access (e.g., 'age' in 'age plus 1')
 struct Variable : Expr {
     Token name;
