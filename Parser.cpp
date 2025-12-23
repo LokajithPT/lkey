@@ -37,7 +37,85 @@ std::unique_ptr<Stmt> Parser::statement() {
     if (check(TokenType::WHEN)) {
         return ifStatement();
     }
+    if (check(TokenType::WITH)) {
+        return withStatement();
+    }
     return expressionStatement();
+}
+
+std::unique_ptr<Stmt> Parser::withStatement() {
+    consume(TokenType::WITH, "Expected 'with'.");
+
+    if (check(TokenType::IDENTIFIER)) {
+        // For Loop: with i from 1 to 10 then ...
+        Token name = consume(TokenType::IDENTIFIER, "Expected variable name.");
+        consume(TokenType::FROM, "Expected 'from'.");
+        std::unique_ptr<Expr> start = expression();
+        consume(TokenType::TO, "Expected 'to'.");
+        std::unique_ptr<Expr> end = expression();
+        consume(TokenType::THEN, "Expected 'then'.");
+        
+        // Parse block of statements until '.'
+        std::vector<std::unique_ptr<Stmt>> bodyStmts;
+        while (!check(TokenType::DOT) && !isAtEnd()) {
+            bodyStmts.push_back(declaration());
+        }
+        consume(TokenType::DOT, "Expected '.' after loop body.");
+
+        // Desugar to:
+        // var i is start
+        // while (not (i greater end)) {
+        //   body
+        //   var i is i plus 1
+        // }
+        
+        std::vector<std::unique_ptr<Stmt>> outerStmts;
+        
+        // 1. var i is start
+        outerStmts.push_back(std::make_unique<Var>(name, std::move(start)));
+        
+        // 2. Condition: not (i greater end)
+        std::unique_ptr<Expr> condition = std::make_unique<Unary>(
+            Token{TokenType::NOT, "not", name.line},
+            std::make_unique<Binary>(
+                std::make_unique<Variable>(name), 
+                Token{TokenType::GREATER, "greater", name.line},
+                std::move(end)
+            )
+        );
+
+        // 3. Increment: var i is i plus 1
+        std::unique_ptr<Expr> increment = std::make_unique<Binary>(
+             std::make_unique<Variable>(name),
+             Token{TokenType::PLUS, "plus", name.line},
+             std::make_unique<Literal>("1", TokenType::NUMBER)
+        );
+        bodyStmts.push_back(std::make_unique<Var>(name, std::move(increment)));
+        
+        std::unique_ptr<Stmt> whileBody = std::make_unique<Block>(std::move(bodyStmts));
+        
+        outerStmts.push_back(std::make_unique<While>(std::move(condition), std::move(whileBody)));
+        
+        return std::make_unique<Block>(std::move(outerStmts));
+
+    } else {
+        // While Loop: with (condition) then ...
+        consume(TokenType::LPAREN, "Expected '(' after 'with'.");
+        std::unique_ptr<Expr> condition = expression();
+        consume(TokenType::RPAREN, "Expected ')' after condition.");
+        consume(TokenType::THEN, "Expected 'then'.");
+        
+        // Parse block of statements until '.'
+        std::vector<std::unique_ptr<Stmt>> bodyStmts;
+        while (!check(TokenType::DOT) && !isAtEnd()) {
+            bodyStmts.push_back(declaration());
+        }
+        consume(TokenType::DOT, "Expected '.' after loop body.");
+        
+        std::unique_ptr<Stmt> body = std::make_unique<Block>(std::move(bodyStmts));
+        
+        return std::make_unique<While>(std::move(condition), std::move(body));
+    }
 }
 
 std::unique_ptr<Stmt> Parser::ifStatement() {

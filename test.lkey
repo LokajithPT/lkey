@@ -1,0 +1,4 @@
+say "Running from file!"
+var n is 5
+with i from 1 to n then
+  say "Looping " plus i.

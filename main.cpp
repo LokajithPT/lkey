@@ -9,74 +9,52 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
-string TokenTypeToString(TokenType type) {
-  switch (type) {
-  case TokenType::LPAREN: return "LPAREN";
-  case TokenType::RPAREN: return "RPAREN";
-  case TokenType::COMMA: return "COMMA";
-  case TokenType::DOT: return "DOT";
-  case TokenType::HASH: return "HASH";
-  case TokenType::NUMBER: return "NUMBER";
-  case TokenType::STRING: return "STRING";
-  
-  case TokenType::VAR: return "VAR";
-  case TokenType::IS: return "IS";
-  case TokenType::PLUS: return "PLUS";
-  case TokenType::MINUS: return "MINUS";
-  case TokenType::INTO: return "INTO";
-  case TokenType::DIV: return "DIV";
-  case TokenType::REMINDER: return "REMINDER";
-  
-  case TokenType::GREATER: return "GREATER";
-  case TokenType::LESSER: return "LESSER";
-  case TokenType::EQUAL: return "EQUAL";
-  case TokenType::NOT: return "NOT";
-  case TokenType::AND: return "AND";
-  case TokenType::OR: return "OR";
-  
-  case TokenType::WHEN: return "WHEN";
-  case TokenType::THEN: return "THEN";
-  case TokenType::SAY: return "SAY";
-  case TokenType::IDENTIFIER: return "IDENTIFIER";
-  
-  case TokenType::NOTHING: return "NOTHING";
-
-  case TokenType::END_OF_FILE: return "END_OF_FILE";
-  default: return "UNKNOWN";
-  }
+// Helper to read file content
+string readFile(const string& path) {
+    ifstream file(path);
+    if (!file.is_open()) {
+        cerr << "Could not open file: " << path << endl;
+        exit(74); // IO Error exit code
+    }
+    stringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
 }
 
 int main(int argc, char *argv[]) {
-  cout << "lowkey interpreter " << endl;
+    if (argc > 1) {
+        string path = argv[1];
+        
+        // Check extension
+        if (path.length() < 5 || path.substr(path.length() - 5) != ".lkey") {
+             // Just a warning, or enforce it? Let's just warn.
+             // cerr << "Warning: File does not end with .lkey" << endl;
+        }
 
-  string source = "var age is 25 \n"
-                  "say age plus 5 \n"
-                  "say \"Hello\" \n"
-                  "when (age greater than 18) then \n"
-                  "  say \"Adult\", \n"
-                  "when nothing then \n"
-                  "  say \"Kid\".";
+        string source = readFile(path);
+        
+        Lexer lexer(source);
+        vector<Token> tokens = lexer.scanTokens();
+        
+        // Check for lexer errors? (scanTokens usually prints them)
+        
+        Parser parser(tokens);
+        vector<unique_ptr<Stmt>> statements = parser.parse();
+        
+        // If parser failed (returned empty or printed errors), we might want to stop.
+        // But our parser is simple and returns what it can.
+        
+        Interpreter interpreter;
+        interpreter.interpret(statements);
 
-  Lexer lexer(source);
-  vector<Token> tokens = lexer.scanTokens();
+    } else {
+        cout << "Usage: lkeycpp <file.lkey>" << endl;
+        cout << "Lowkey Interpreter v1.0" << endl;
+    }
 
-  cout << "-- scanned tokens --" << endl;
-  for (const auto &token : tokens) {
-    cout << "type : " << TokenTypeToString(token.type)
-         << ", lexeme: '" << token.lexeme << "', Line: " << token.line << endl;
-  }
-  cout << "----------------------" << endl;
-
-  Parser parser(tokens);
-  vector<unique_ptr<Stmt>> statements = parser.parse();
-
-  Interpreter interpreter;
-  interpreter.interpret(statements);
-
-  cout << "-----------------------------" << endl;
-
-  return 0;
+    return 0;
 }

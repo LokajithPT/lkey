@@ -24,6 +24,9 @@ enum class TokenType {
   WHEN,
   THEN,
   NOTHING,
+  WITH,
+  FROM,
+  TO,
   READ,
   SAY,
 

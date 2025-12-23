@@ -42,6 +42,14 @@ void Interpreter::execute(const Stmt& stmt) {
         } else if (ifStmt->elseBranch) {
             execute(*ifStmt->elseBranch);
         }
+    } else if (const While* whileStmt = dynamic_cast<const While*>(&stmt)) {
+        while (isTruthy(evaluate(*whileStmt->condition))) {
+            execute(*whileStmt->body);
+        }
+    } else if (const Block* blockStmt = dynamic_cast<const Block*>(&stmt)) {
+        for (const auto& statement : blockStmt->statements) {
+            execute(*statement);
+        }
     } else {
         throw std::runtime_error("Unknown statement type encountered.");
     }
@@ -88,6 +96,15 @@ std::any Interpreter::evaluate(const Expr& expr) {
                 if (left.type() == typeid(std::string) && right.type() == typeid(std::string)) {
                     return std::any_cast<std::string>(left) + std::any_cast<std::string>(right);
                 }
+                
+                // Auto-convert number to string if one operand is a string
+                if (left.type() == typeid(std::string) && right.type() == typeid(double)) {
+                    return std::any_cast<std::string>(left) + stringify(right);
+                }
+                if (left.type() == typeid(double) && right.type() == typeid(std::string)) {
+                    return stringify(left) + std::any_cast<std::string>(right);
+                }
+                
                 throw std::runtime_error("Operands must be two numbers or two strings for '+' at line " + std::to_string(binary->op.line) + ".");
             case TokenType::MINUS:
                 checkNumberOperands(binary->op, left, right);

@@ -43,3 +43,20 @@ struct If : Stmt {
     If(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> thenBranch, std::unique_ptr<Stmt> elseBranch)
         : condition(std::move(condition)), thenBranch(std::move(thenBranch)), elseBranch(std::move(elseBranch)) {}
 };
+
+// 'with (condition) then ...'
+struct While : Stmt {
+    std::unique_ptr<Expr> condition;
+    std::unique_ptr<Stmt> body;
+
+    While(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> body) 
+        : condition(std::move(condition)), body(std::move(body)) {}
+};
+
+// Block of statements
+struct Block : Stmt {
+    std::vector<std::unique_ptr<Stmt>> statements;
+
+    Block(std::vector<std::unique_ptr<Stmt>> statements) 
+        : statements(std::move(statements)) {}
+};

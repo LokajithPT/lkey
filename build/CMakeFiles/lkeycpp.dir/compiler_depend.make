@@ -26,9 +26,19 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/bits/errno.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/iscanonical.h \
   /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
   /usr/include/bits/locale.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls-macros.h \
+  /usr/include/bits/mathcalls-narrow.h \
+  /usr/include/bits/mathcalls.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
@@ -133,6 +143,7 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/c++/15.2.1/bits/shared_ptr.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
+  /usr/include/c++/15.2.1/bits/specfun.h \
   /usr/include/c++/15.2.1/bits/std_abs.h \
   /usr/include/c++/15.2.1/bits/stl_algobase.h \
   /usr/include/c++/15.2.1/bits/stl_bvector.h \
@@ -162,6 +173,7 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/c++/15.2.1/cctype \
   /usr/include/c++/15.2.1/cerrno \
   /usr/include/c++/15.2.1/clocale \
+  /usr/include/c++/15.2.1/cmath \
   /usr/include/c++/15.2.1/concepts \
   /usr/include/c++/15.2.1/cstddef \
   /usr/include/c++/15.2.1/cstdio \
@@ -183,6 +195,7 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/c++/15.2.1/iosfwd \
   /usr/include/c++/15.2.1/iostream \
   /usr/include/c++/15.2.1/istream \
+  /usr/include/c++/15.2.1/limits \
   /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/new \
@@ -195,6 +208,18 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/c++/15.2.1/string \
   /usr/include/c++/15.2.1/string_view \
   /usr/include/c++/15.2.1/system_error \
+  /usr/include/c++/15.2.1/tr1/bessel_function.tcc \
+  /usr/include/c++/15.2.1/tr1/beta_function.tcc \
+  /usr/include/c++/15.2.1/tr1/ell_integral.tcc \
+  /usr/include/c++/15.2.1/tr1/exp_integral.tcc \
+  /usr/include/c++/15.2.1/tr1/gamma.tcc \
+  /usr/include/c++/15.2.1/tr1/hypergeometric.tcc \
+  /usr/include/c++/15.2.1/tr1/legendre_function.tcc \
+  /usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
+  /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
+  /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
+  /usr/include/c++/15.2.1/tr1/special_function_util.h \
   /usr/include/c++/15.2.1/tuple \
   /usr/include/c++/15.2.1/type_traits \
   /usr/include/c++/15.2.1/typeinfo \
@@ -224,6 +249,7 @@ CMakeFiles/lkeycpp.dir/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/Interpret
   /usr/include/linux/stddef.h \
   /usr/include/linux/types.h \
   /usr/include/locale.h \
+  /usr/include/math.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -776,6 +802,7 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
   /usr/include/c++/15.2.1/bits/basic_string.tcc \
   /usr/include/c++/15.2.1/bits/char_traits.h \
   /usr/include/c++/15.2.1/bits/charconv.h \
+  /usr/include/c++/15.2.1/bits/codecvt.h \
   /usr/include/c++/15.2.1/bits/concept_check.h \
   /usr/include/c++/15.2.1/bits/cpp_type_traits.h \
   /usr/include/c++/15.2.1/bits/cxxabi_forced.h \
@@ -784,6 +811,7 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
   /usr/include/c++/15.2.1/bits/exception.h \
   /usr/include/c++/15.2.1/bits/exception_defines.h \
   /usr/include/c++/15.2.1/bits/exception_ptr.h \
+  /usr/include/c++/15.2.1/bits/fstream.tcc \
   /usr/include/c++/15.2.1/bits/functexcept.h \
   /usr/include/c++/15.2.1/bits/functional_hash.h \
   /usr/include/c++/15.2.1/bits/hash_bytes.h \
@@ -859,6 +887,7 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
   /usr/include/c++/15.2.1/ext/numeric_traits.h \
   /usr/include/c++/15.2.1/ext/string_conversions.h \
   /usr/include/c++/15.2.1/ext/type_traits.h \
+  /usr/include/c++/15.2.1/fstream \
   /usr/include/c++/15.2.1/initializer_list \
   /usr/include/c++/15.2.1/ios \
   /usr/include/c++/15.2.1/iosfwd \
@@ -882,8 +911,10 @@ CMakeFiles/lkeycpp.dir/main.cpp.o: /home/skedaddle/code/lkeycpp/main.cpp \
   /usr/include/c++/15.2.1/typeinfo \
   /usr/include/c++/15.2.1/vector \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++locale.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h \
@@ -936,6 +967,7 @@ lkeycpp: /usr/lib/Scrt1.o \
   /usr/lib/libc_nonshared.a \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
+  CMakeFiles/lkeycpp.dir/Interpreter.cpp.o \
   CMakeFiles/lkeycpp.dir/Lexer.cpp.o \
   CMakeFiles/lkeycpp.dir/Parser.cpp.o \
   CMakeFiles/lkeycpp.dir/main.cpp.o
@@ -947,21 +979,59 @@ CMakeFiles/lkeycpp.dir/Parser.cpp.o:
 
 CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
+CMakeFiles/lkeycpp.dir/Interpreter.cpp.o:
+
 /usr/lib/libmvec.so.1:
 
 /usr/lib/libm.so.6:
 
 /usr/lib/libc_nonshared.a:
 
-/usr/include/c++/15.2.1/bits/postypes.h:
+/usr/lib/libc.so.6:
 
-/usr/include/c++/15.2.1/bits/ostream_insert.h:
+/usr/lib/ld-linux-x86-64.so.2:
 
-/usr/include/c++/15.2.1/bits/ptr_traits.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
-/usr/include/c++/15.2.1/bits/refwrap.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
+
+/usr/lib/libm.so:
+
+/usr/lib/libgcc_s.so.1:
+
+/usr/lib/crti.o:
+
+/usr/lib/Scrt1.o:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
+
+/usr/include/c++/15.2.1/sstream:
+
+/usr/include/c++/15.2.1/fstream:
+
+/usr/include/c++/15.2.1/bits/sstream.tcc:
+
+/usr/include/c++/15.2.1/bits/codecvt.h:
+
+/home/skedaddle/code/lkeycpp/main.cpp:
+
+/home/skedaddle/code/lkeycpp/Parser.h:
+
+/home/skedaddle/code/lkeycpp/Parser.cpp:
+
+/home/skedaddle/code/lkeycpp/Lexer.cpp:
+
+/usr/include/wchar.h:
+
+/usr/include/c++/15.2.1/bits/fstream.tcc:
+
+/usr/include/time.h:
+
+/usr/include/sys/types.h:
 
 /usr/include/c++/15.2.1/bits/nested_exception.h:
 
@@ -975,15 +1045,7 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/cwchar:
 
-/usr/include/c++/15.2.1/bits/locale_facets.h:
-
-/usr/include/c++/15.2.1/ext/string_conversions.h:
-
 /usr/include/c++/15.2.1/cstdio:
-
-/usr/lib/ld-linux-x86-64.so.2:
-
-/usr/include/c++/15.2.1/bits/invoke.h:
 
 /usr/include/bits/endian.h:
 
@@ -991,19 +1053,17 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/pstl/glue_memory_defs.h:
 
-/usr/include/c++/15.2.1/bits/exception.h:
+/usr/include/c++/15.2.1/bits/locale_facets.h:
 
-/usr/include/c++/15.2.1/bits/erase_if.h:
+/usr/include/c++/15.2.1/ext/string_conversions.h:
 
 /usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
 /usr/include/c++/15.2.1/bits/memory_resource.h:
 
-/usr/include/time.h:
-
-/usr/include/c++/15.2.1/bits/charconv.h:
-
 /usr/include/c++/15.2.1/bits/basic_ios.tcc:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/15.2.1/cerrno:
 
@@ -1021,17 +1081,11 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/backward/auto_ptr.h:
 
-/usr/lib/libm.so:
-
 /usr/include/c++/15.2.1/bits/stl_bvector.h:
-
-/home/skedaddle/code/lkeycpp/Parser.h:
 
 /usr/include/c++/15.2.1/bits/hash_bytes.h:
 
 /usr/include/bits/wctype-wchar.h:
-
-/usr/include/sys/types.h:
 
 /usr/include/bits/timesize.h:
 
@@ -1049,11 +1103,11 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/backward/binders.h:
 
-/usr/include/bits/types/timer_t.h:
-
-/usr/lib/Scrt1.o:
-
 /usr/include/c++/15.2.1/bits/char_traits.h:
+
+/usr/include/c++/15.2.1/bits/exception.h:
+
+/usr/include/bits/math-vector.h:
 
 /usr/include/bits/types/struct_tm.h:
 
@@ -1083,29 +1137,55 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/bits/struct_rwlock.h:
 
-/usr/include/bits/libc-header-start.h:
-
-/usr/include/c++/15.2.1/ostream:
-
-/usr/include/bits/floatn-common.h:
+/usr/include/bits/types/sigset_t.h:
 
 /usr/include/bits/types/mbstate_t.h:
+
+/usr/include/bits/types/locale_t.h:
+
+/usr/include/c++/15.2.1/bits/allocated_ptr.h:
+
+/usr/include/c++/15.2.1/cwctype:
+
+/usr/include/c++/15.2.1/istream:
+
+/usr/include/bits/types/clock_t.h:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/bits/iscanonical.h:
+
+/usr/include/c++/15.2.1/any:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/include/bits/floatn-common.h:
 
 /usr/include/bits/errno.h:
 
 /usr/include/bits/timex.h:
 
-/home/skedaddle/code/lkeycpp/Lexer.cpp:
+/usr/include/bits/atomic_wide_counter.h:
 
-/usr/include/c++/15.2.1/bits/node_handle.h:
-
-/usr/include/c++/15.2.1/bits/basic_string.tcc:
+/usr/include/c++/15.2.1/pstl/execution_defs.h:
 
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/bits/endianness.h:
 
+/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
+
+/usr/include/c++/15.2.1/bits/parse_numbers.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
+
 /usr/include/bits/byteswap.h:
+
+/usr/include/c++/15.2.1/tr1/special_function_util.h:
 
 /usr/include/bits/time64.h:
 
@@ -1117,17 +1197,9 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/asm-generic/int-ll64.h:
 
-/usr/include/bits/types/locale_t.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
-
-/usr/include/c++/15.2.1/bits/parse_numbers.h:
+/usr/include/bits/mathcalls-macros.h:
 
 /usr/include/c++/15.2.1/bits/allocator.h:
-
-/usr/include/bits/stdio_lim.h:
-
-/usr/include/bits/types/__mbstate_t.h:
 
 /usr/include/c++/15.2.1/bits/locale_facets.tcc:
 
@@ -1139,29 +1211,21 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/asm/posix_types.h:
 
-/usr/include/c++/15.2.1/bits/ostream.h:
-
 /usr/include/c++/15.2.1/bits/cpp_type_traits.h:
 
-/usr/include/c++/15.2.1/bits/streambuf.tcc:
-
-/usr/include/bits/cpu-set.h:
-
-/usr/include/bits/long-double.h:
-
-/usr/lib/crti.o:
-
 /usr/include/c++/15.2.1/bits/istream.tcc:
+
+/usr/include/c++/15.2.1/limits:
 
 /usr/include/c++/15.2.1/bits/stl_construct.h:
 
 /usr/include/bits/struct_mutex.h:
 
-/usr/include/bits/types/time_t.h:
+/usr/lib/libc.so:
 
-/usr/include/c++/15.2.1/bits/range_access.h:
+/usr/include/bits/pthreadtypes.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
+/usr/include/c++/15.2.1/tr1/beta_function.tcc:
 
 /usr/include/bits/types/struct_FILE.h:
 
@@ -1171,23 +1235,21 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /home/skedaddle/code/lkeycpp/Expr.h:
 
-/usr/include/bits/pthread_stack_min-dynamic.h:
+/usr/include/c++/15.2.1/bits/locale_classes.h:
 
-/usr/include/c++/15.2.1/pstl/pstl_config.h:
+/usr/include/alloca.h:
+
+/usr/include/c++/15.2.1/bits/ostream.h:
+
+/usr/include/c++/15.2.1/bits/erase_if.h:
+
+/usr/include/bits/fp-logb.h:
+
+/usr/include/bits/long-double.h:
 
 /usr/include/c++/15.2.1/bit:
 
 /usr/include/c++/15.2.1/bits/basic_ios.h:
-
-/usr/include/c++/15.2.1/bits/allocated_ptr.h:
-
-/usr/include/c++/15.2.1/cwctype:
-
-/usr/include/c++/15.2.1/istream:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/include/bits/types/__fpos_t.h:
 
 /usr/include/bits/floatn.h:
 
@@ -1195,15 +1257,37 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/asm-generic/posix_types.h:
 
+/usr/include/c++/15.2.1/tr1/poly_laguerre.tcc:
+
 /usr/include/c++/15.2.1/bits/stl_tempbuf.h:
 
 /usr/include/stdc-predef.h:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/c++/15.2.1/ostream:
+
+/usr/include/bits/types/time_t.h:
+
+/usr/include/c++/15.2.1/bits/charconv.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/c++/15.2.1/pstl/pstl_config.h:
 
 /usr/include/c++/15.2.1/bits/atomic_base.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/gnu/stubs.h:
+
+/usr/lib/crtn.o:
+
+/usr/include/c++/15.2.1/bits/functional_hash.h:
 
 /home/skedaddle/code/lkeycpp/Stmt.h:
 
@@ -1223,15 +1307,11 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/bits/setjmp.h:
 
-/usr/include/c++/15.2.1/bits/new_allocator.h:
+/usr/include/bits/types/clockid_t.h:
+
+/usr/include/bits/stdint-intn.h:
 
 /home/skedaddle/code/lkeycpp/Token.h:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/15.2.1/bits/locale_classes.h:
-
-/usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/15.2.1/ios:
 
@@ -1242,12 +1322,6 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 /usr/include/c++/15.2.1/debug/debug.h:
 
 /usr/include/c++/15.2.1/type_traits:
-
-/usr/include/c++/15.2.1/any:
-
-/usr/include/c++/15.2.1/system_error:
-
-/usr/include/asm/errno.h:
 
 /usr/include/c++/15.2.1/bits/move.h:
 
@@ -1263,21 +1337,49 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/map:
 
-/usr/include/bits/types/__locale_t.h:
+/usr/include/c++/15.2.1/bits/new_allocator.h:
 
-/usr/include/c++/15.2.1/bits/sstream.tcc:
+/usr/include/asm/errno.h:
 
-/usr/include/bits/atomic_wide_counter.h:
+/usr/include/c++/15.2.1/system_error:
 
-/usr/include/c++/15.2.1/pstl/execution_defs.h:
+/usr/include/c++/15.2.1/bits/basic_string.tcc:
 
-/usr/include/bits/stdint-intn.h:
+/usr/include/c++/15.2.1/bits/node_handle.h:
 
-/usr/include/bits/types/clockid_t.h:
+/usr/include/c++/15.2.1/bits/refwrap.h:
+
+/usr/include/bits/cpu-set.h:
+
+/usr/include/c++/15.2.1/bits/streambuf.tcc:
+
+/usr/include/c++/15.2.1/bits/invoke.h:
+
+/usr/include/math.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/include/c++/15.2.1/bits/ostream.tcc:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
+
+/usr/include/c++/15.2.1/bits/ostream_insert.h:
+
+/usr/include/c++/15.2.1/bits/ptr_traits.h:
+
+/usr/include/c++/15.2.1/bits/postypes.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
+
+/usr/include/c++/15.2.1/bits/range_access.h:
+
+/usr/include/c++/15.2.1/tr1/bessel_function.tcc:
 
 /usr/include/c++/15.2.1/bits/locale_classes.tcc:
 
 /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/15.2.1/bits/specfun.h:
 
 /usr/include/linux/types.h:
 
@@ -1297,11 +1399,17 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/bits/stl_tree.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
-
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/15.2.1/bits/stl_vector.h:
+
+/home/skedaddle/code/lkeycpp/Lexer.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/c++/15.2.1/exception:
 
 /usr/include/c++/15.2.1/tuple:
 
@@ -1313,11 +1421,17 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/bits/string_view.tcc:
 
+/usr/lib/libstdc++.so:
+
+/usr/include/locale.h:
+
 /usr/include/c++/15.2.1/bits/unique_ptr.h:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
 /usr/include/c++/15.2.1/bits/uses_allocator.h:
+
+/usr/include/c++/15.2.1/tr1/hypergeometric.tcc:
 
 /usr/include/c++/15.2.1/bits/basic_string.h:
 
@@ -1325,17 +1439,15 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/bits/vector.tcc:
 
-/usr/include/c++/15.2.1/bits/ostream.tcc:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
-
 /usr/include/c++/15.2.1/bits/version.h:
 
 /usr/include/c++/15.2.1/clocale:
 
 /usr/include/c++/15.2.1/concepts:
 
-/usr/include/wchar.h:
+/usr/lib/libgcc_s.so:
+
+/usr/include/c++/15.2.1/cstddef:
 
 /usr/include/c++/15.2.1/cstdlib:
 
@@ -1353,19 +1465,9 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/ext/concurrence.h:
 
-/home/skedaddle/code/lkeycpp/main.cpp:
-
 /usr/include/c++/15.2.1/ext/numeric_traits.h:
 
 /usr/include/c++/15.2.1/ext/type_traits.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/c++/15.2.1/exception:
-
-/home/skedaddle/code/lkeycpp/Lexer.h:
 
 /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h:
 
@@ -1373,9 +1475,13 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/iosfwd:
 
+/usr/include/bits/mathcalls.h:
+
 /usr/include/c++/15.2.1/iostream:
 
 /usr/include/c++/15.2.1/memory:
+
+/usr/include/c++/15.2.1/tr1/legendre_function.tcc:
 
 /usr/include/c++/15.2.1/string:
 
@@ -1383,7 +1489,23 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/c++/15.2.1/string_view:
 
+/usr/include/c++/15.2.1/cmath:
+
 /usr/include/endian.h:
+
+/usr/include/c++/15.2.1/tr1/exp_integral.tcc:
+
+/usr/include/c++/15.2.1/tr1/gamma.tcc:
+
+/usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
 
 /usr/include/c++/15.2.1/typeinfo:
 
@@ -1427,6 +1549,8 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 
 /usr/include/wctype.h:
 
+/usr/include/bits/fp-fast.h:
+
 /usr/include/sched.h:
 
 /usr/include/bits/wordsize.h:
@@ -1438,31 +1562,3 @@ CMakeFiles/lkeycpp.dir/Lexer.cpp.o:
 /usr/include/c++/15.2.1/bits/shared_ptr.h:
 
 /usr/include/sys/single_threaded.h:
-
-/home/skedaddle/code/lkeycpp/Parser.cpp:
-
-/usr/include/c++/15.2.1/sstream:
-
-/usr/include/c++/15.2.1/bits/functional_hash.h:
-
-/usr/lib/crtn.o:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/lib/libc.so:
-
-/usr/include/c++/15.2.1/cstddef:
-
-/usr/lib/libgcc_s.so:
-
-/usr/lib/libgcc_s.so.1:
-
-/usr/include/locale.h:
-
-/usr/lib/libstdc++.so:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
-
-/usr/lib/libc.so.6:
