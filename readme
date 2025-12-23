@@ -1,220 +1,165 @@
-# Lowkey Programming Language
+# Lowkey (lkey)
 
-A simple, readable programming language that focuses on clarity and expressiveness.
+A simple, readable programming language that reads like English.
 
-## Overview
+Lowkey is designed to be intuitive. It replaces cryptic symbols (`{`, `}`, `&&`, `||`, `==`) with natural language keywords, making code self-documenting and accessible.
 
-Lowkey is designed to be intuitive and human-readable. Instead of cryptic symbols, it uses natural language keywords that make code self-documenting and easy to understand.
+## 🚀 Installation & Build
 
-## Features
+### Prerequisites
+- A C++ compiler (GCC, Clang, or MSVC)
+- CMake (version 3.10 or higher)
 
-- **Variables**: `var name is value`
-- **Math Operations**: `plus`, `minus`, `into`, `div`, `reminder`
-- **Comparisons**: `greater than`, `lesser than`, `equal to`, `not equal to`
-- **Logic**: `and`, `or`, `not`
-- **Conditionals**: `when/then/nothing` flow control
-- **Loops**: `with ... then` for iteration
-- **Input/Output**: `read` and `say` for interactive programs
-- **Files**: Execute `.lkey` source files
-- **Comments**: Lines starting with `#`
+### Building form Source
 
-## Syntax Guide
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/LokajithPT/lkey.git
+   cd lkey
+   ```
 
-### Variables
+2. Create a build directory and compile:
+   ```bash
+   mkdir build && cd build
+   cmake ..
+   cmake --build .
+   ```
+
+3. The executable `lkeycpp` (or `lkeycpp.exe` on Windows) will be created.
+
+## 🏃 Usage
+
+**Run a script:**
+```bash
+./lkeycpp myscript.lkey
+```
+
+**Run the internal test:**
+If no file is provided, it prints usage information.
+
+---
+
+## 📘 Language Reference
+
+### 1. Variables
+Variables are declared using `var` and `is`. They are dynamically typed.
 
 ```lowkey
 var name is "Alice"
 var age is 25
-var score is 100
+var isAlive is true
 ```
 
-### Math Operations
+### 2. Output
+Use `say` to print values to the console. It supports automatic string conversion.
 
 ```lowkey
-var sum is 10 plus 5
-var diff is 20 minus 8
-var product is 6 into 7
-var quotient is 15 div 3
-var remainder is reminder 17 5
+say "Hello World"
+say 123
+say "Your age is " plus age
 ```
 
-### Input/Output
+### 3. Math Operations
+Lowkey uses words for math operators.
 
-**Simple input:**
+| Keyword | Symbol | Example |
+| :--- | :--- | :--- |
+| `plus` | `+` | `10 plus 5` |
+| `minus` | `-` | `10 minus 5` |
+| `into` | `*` | `10 into 5` |
+| `div` | `/` | `10 div 5` |
+| `reminder`| `%` | `10 reminder 3` |
+
+### 4. Comparisons & Logic
+Boolean expressions are readable and explicit.
+
+| Keyword | Symbol | Example |
+| :--- | :--- | :--- |
+| `greater than` | `>` | `age greater than 18` |
+| `lesser than` | `<` | `age lesser than 18` |
+| `equal` | `==` | `score equal 100` |
+| `and` | `&&` | `A and B` |
+| `or` | `\|\|` | `A or B` |
+| `not` | `!` | `not (age greater than 18)` |
+
+### 5. Control Flow (Conditionals)
+Use `when` ... `then` for if-statements. You can chain conditions (like `else if`) using a comma `,` and handle the "else" case with `when nothing`.
+
+**Syntax:**
 ```lowkey
-read name
-```
-
-**Input with prompt:**
-```lowkey
-read name as "Enter your name: "
-```
-
-**Output:**
-```lowkey
-say "Hello world"
-say "Your name is " plus name
-```
-
-### Conditional Logic
-
-**Basic if statement:**
-```lowkey
-when (score greater than 50) then
-    var status is "pass".
-```
-
-**If-elif-else chain:**
-```lowkey
-when (score greater than 80) then
-    var grade is "A",
-when (score greater than 60) then
-    var grade is "B",
+when (condition) then
+    statement,
+when (condition2) then
+    statement,
 when nothing then
-    var grade is "C".
+    statement.
 ```
 
-**Complex conditions:**
+**Note:** The block must end with a dot `.` if it's the last in the chain.
+
+**Example:**
 ```lowkey
-when (age greater than 18 and score greater than 50) then
-    var eligible is true,
-when (age lesser than 18 or score lesser than 30) then
-    var eligible is false.
+when (age greater than 18) then
+    say "Adult",
+when nothing then
+    say "Kid".
 ```
 
-**Negation:**
-```lowkey
-when (not (score greater than 50)) then
-    var status is "needs improvement".
-```
+### 6. Loops
+Lowkey supports iteration using the `with` keyword.
 
-### Loops
+**For Loop (Range):**
+Iterates a variable from a start value *to* an end value (inclusive).
 
-**For Loop:**
-Iterate from a start value to an end value (inclusive).
 ```lowkey
+# Counts from 1 to 5
 with i from 1 to 5 then
     say i.
 ```
 
-**While Loop:**
-Repeat while a condition is true.
+**While Loop (Condition):**
+Repeats the body as long as the condition is true.
+
 ```lowkey
-var x is 5
+var x is 3
 with (x greater than 0) then
     say x
     var x is x minus 1.
 ```
 
-## Complete Example
+**Blocks:**
+Loop bodies can contain multiple statements. The block ends with a dot `.`.
 
 ```lowkey
-# Interactive greeting program
-read name as "What's your name: "
-read age as "How old are you: "
-
-say "Hello " plus name plus "!"
-
-when (age greater than 18) then
-    say "You are an adult",
-when (age greater than 13) then
-    say "You are a teenager",
-when nothing then
-    say "You are a child".
-
-# Math with user input
-read score as "Enter your score: "
-
-when (score greater than 90) then
-    var grade is "A",
-when (score greater than 80 and score lesser than 90) then
-    var grade is "B",
-when (score greater than 70 and score lesser than 80) then
-    var grade is "C",
-when nothing then
-    var grade is "D".
-
-say "Your grade is " plus grade
-var doubled is score into 2
-say "Double your score is " plus doubled
+with i from 1 to 3 then
+    say "Number:"
+    say i.
 ```
 
-## Running Lowkey
+## 📝 Example Program
 
-Compile your Lowkey program:
-```bash
-cargo build --release
-```
+Save this as `hello.lkey`:
 
-Execute a `.lkey` file:
-```bash
-./target/release/lowkey program.lkey
-```
-
-## Language Philosophy
-
-Lowkey follows these principles:
-
-1. **Readability First**: Code should read like English
-2. **Minimal Symbols**: Replace `>`, `<`, `&&`, `||` with clear words
-3. **Explicit Control Flow**: `when/then/nothing` makes intent clear
-4. **Type Safety**: Clear separation between numbers, strings, and logic
-5. **Simplicity**: Focus on essential features without unnecessary complexity
-
-## Comparison to Traditional Languages
-
-Instead of:
-```javascript
-let name = prompt("Enter name: ");
-console.log("Hello " + name);
-```
-
-Lowkey writes:
 ```lowkey
-read name as "Enter name: "
-say "Hello " plus name
+# A simple counting program
+
+var limit is 5
+say "Counting to " plus limit
+
+with i from 1 to limit then
+    say "Count is " plus i
+    when (i equal 3) then
+        say "  (We hit three!)".
+        
+say "Done!"
 ```
 
-Instead of:
-```javascript
-if (score > 50 && age > 18) {
-    grade = "A";
-} else {
-    grade = "B";
-}
-```
+## 🛠 Project Structure
 
-Lowkey writes:
-```lowkey
-when (score greater than 50 and age greater than 18) then
-    var grade is "A",
-when nothing then
-    var grade is "B".
-```
-
-The Lowkey version is self-documenting and requires no programming background to understand.
-
-## Error Messages
-
-Lowkey provides clear, helpful error messages:
-- `"Expected 'is' after variable name"`
-- `"Unclosed parenthesis in condition"`
-- `"Undefined variable: score"`
-
-## Building from Source
-
-```bash
-git clone <repository>
-cd lowkey
-cargo build --release
-```
-
-## Contributing
-
-Lowkey is intentionally minimal. Contributions should maintain:
-- Readability and clarity
-- Natural language approach
-- Simplicity over complexity
+- `Lexer.cpp/h`: Tokenizes the source code (Converts text -> Tokens).
+- `Parser.cpp/h`: Analyzes the syntax and builds the AST (Abstract Syntax Tree).
+- `Interpreter.cpp/h`: Traverses the AST and executes the logic.
+- `main.cpp`: Entry point, handles file loading and pipeline execution.
 
 ## License
 
