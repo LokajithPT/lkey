@@ -86,9 +86,6 @@ void Lexer::scanToken() {
   case '.':
     tokens.push_back({TokenType::DOT, ".", line});
     break;
-  case '#':
-    tokens.push_back({TokenType::HASH, "#", line});
-    break;
 
   case '"': 
     while (peek() != '"' && !isAtEnd()) {
@@ -135,6 +132,14 @@ void Lexer::scanToken() {
       }
 
       std::string text = source.substr(start, current - start);
+      
+      // Handle comments
+      if (text == "comment") {
+          // Consume rest of the line
+          while (peek() != '\n' && !isAtEnd()) advance();
+          break; // Don't add token
+      }
+
       TokenType type = TokenType::IDENTIFIER;
       
       if (keywords.find(text) != keywords.end()) {

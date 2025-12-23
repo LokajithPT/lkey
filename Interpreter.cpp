@@ -92,12 +92,9 @@ void Interpreter::execute(const Stmt& stmt) {
             execute(*whileStmt->body);
         }
     } else if (const Block* blockStmt = dynamic_cast<const Block*>(&stmt)) {
-        // Create a new scope for the block
-        // Note: Using dynamic allocation for simplicity here, but could be stack-based or managed.
-        // Important: enclose current environment.
-        Environment* blockEnv = new Environment(environment);
-        executeBlock(blockStmt->statements, blockEnv);
-        delete blockEnv;
+        // Create a new scope for the block on the stack (RAII)
+        Environment blockEnv(environment);
+        executeBlock(blockStmt->statements, &blockEnv);
     } else {
         throw std::runtime_error("Unknown statement type encountered.");
     }
@@ -127,20 +124,18 @@ std::any Interpreter::evaluate(const Expr& expr) {
              throw std::runtime_error("Expected " + std::to_string(function->params.size()) + " args but got " + std::to_string(call->arguments.size()) + ".");
         }
         
-        // Create function environment. Enclosed by GLOBALS for static scoping simulation (simplest).
-        Environment* fnEnv = new Environment(&globals); 
+        // Create function environment on stack (RAII)
+        Environment fnEnv(&globals); 
         
         for (size_t i = 0; i < function->params.size(); ++i) {
-            fnEnv->define(function->params[i].lexeme, evaluate(*call->arguments[i]));
+            fnEnv.define(function->params[i].lexeme, evaluate(*call->arguments[i]));
         }
         
         try {
-            executeBlock(function->body, fnEnv);
+            executeBlock(function->body, &fnEnv);
         } catch (const ReturnException& returnValue) {
-            delete fnEnv;
             return returnValue.value;
         }
-        delete fnEnv;
         
         return std::any(); // Void return
     } else if (const Unary* unary = dynamic_cast<const Unary*>(&expr)) {

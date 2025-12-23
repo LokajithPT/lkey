@@ -45,7 +45,6 @@ enum class TokenType {
   COMMA,
   DOT,
 
-  HASH,
   END_OF_FILE
 };
 
