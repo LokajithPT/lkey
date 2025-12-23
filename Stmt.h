@@ -78,6 +78,17 @@ struct Block : Stmt {
         : statements(std::move(statements)) {}
 };
 
+// 'with source is iterator as mode'
+struct ForEach : Stmt {
+    Token iterator;
+    Token source;
+    std::string mode; // "words" or "letter"
+    std::unique_ptr<Stmt> body;
+
+    ForEach(Token iterator, Token source, std::string mode, std::unique_ptr<Stmt> body)
+        : iterator(iterator), source(source), mode(mode), body(std::move(body)) {}
+};
+
 // Function declaration
 struct Function : Stmt {
     Token name;

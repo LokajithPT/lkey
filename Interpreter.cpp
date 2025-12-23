@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <variant>
 #include <cmath>
+#include <sstream>
 
 // Exception for return statements
 struct ReturnException {
@@ -90,6 +91,52 @@ void Interpreter::execute(const Stmt& stmt) {
     } else if (const While* whileStmt = dynamic_cast<const While*>(&stmt)) {
         while (isTruthy(evaluate(*whileStmt->condition))) {
             execute(*whileStmt->body);
+        }
+    } else if (const ForEach* forStmt = dynamic_cast<const ForEach*>(&stmt)) {
+        // 1. Get source string
+        std::any sourceVal = environment->get(forStmt->source);
+        if (sourceVal.type() != typeid(std::string)) {
+             throw std::runtime_error("Can only iterate over strings.");
+        }
+        std::string sourceStr = std::any_cast<std::string>(sourceVal);
+
+        // 2. Prepare environment for iterator
+        Environment loopEnv(environment);
+        loopEnv.define(forStmt->iterator.lexeme, std::string("")); // Define iterator variable
+
+        // 3. Iterate
+        if (forStmt->mode == "letter") {
+            for (char c : sourceStr) {
+                loopEnv.assign(forStmt->iterator, std::string(1, c));
+                
+                // Execute body with loopEnv
+                Environment* previous = this->environment;
+                this->environment = &loopEnv;
+                try {
+                    execute(*forStmt->body);
+                } catch (...) {
+                    this->environment = previous;
+                    throw;
+                }
+                this->environment = previous;
+            }
+        } else if (forStmt->mode == "words") {
+            std::stringstream ss(sourceStr);
+            std::string word;
+            while (ss >> word) {
+                loopEnv.assign(forStmt->iterator, word);
+                
+                // Execute body
+                Environment* previous = this->environment;
+                this->environment = &loopEnv;
+                try {
+                    execute(*forStmt->body);
+                } catch (...) {
+                    this->environment = previous;
+                    throw;
+                }
+                this->environment = previous;
+            }
         }
     } else if (const Block* blockStmt = dynamic_cast<const Block*>(&stmt)) {
         // Create a new scope for the block on the stack (RAII)
