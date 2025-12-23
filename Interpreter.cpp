@@ -110,6 +110,10 @@ std::any Interpreter::evaluate(const Expr& expr) {
         return std::any();
     } else if (const Variable* variable = dynamic_cast<const Variable*>(&expr)) {
         return environment->get(variable->name);
+    } else if (const Assign* assign = dynamic_cast<const Assign*>(&expr)) {
+        std::any value = evaluate(*assign->value);
+        environment->assign(assign->name, value);
+        return value;
     } else if (const Call* call = dynamic_cast<const Call*>(&expr)) {
         std::any callee = evaluate(*call->callee);
         

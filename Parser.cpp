@@ -117,13 +117,14 @@ std::unique_ptr<Stmt> Parser::withStatement() {
             )
         );
 
-        // 3. Increment: var i is i plus 1
-        std::unique_ptr<Expr> increment = std::make_unique<Binary>(
+        // 3. Increment: i is i plus 1 (Assignment, not Var declaration)
+        std::unique_ptr<Expr> incrementValue = std::make_unique<Binary>(
              std::make_unique<Variable>(name),
              Token{TokenType::PLUS, "plus", name.line},
              std::make_unique<Literal>("1", TokenType::NUMBER)
         );
-        bodyStmts.push_back(std::make_unique<Var>(name, std::move(increment)));
+        std::unique_ptr<Expr> assignment = std::make_unique<Assign>(name, std::move(incrementValue));
+        bodyStmts.push_back(std::make_unique<Expression>(std::move(assignment)));
         
         std::unique_ptr<Stmt> whileBody = std::make_unique<Block>(std::move(bodyStmts));
         
@@ -221,7 +222,25 @@ std::unique_ptr<Stmt> Parser::expressionStatement() {
 // ---------------- Grammar Rules ----------------
 
 std::unique_ptr<Expr> Parser::expression() {
-  return logic_or();
+  return assignment();
+}
+
+std::unique_ptr<Expr> Parser::assignment() {
+  std::unique_ptr<Expr> expr = logic_or();
+
+  if (match({TokenType::IS})) {
+    Token equals = previous();
+    std::unique_ptr<Expr> value = assignment();
+
+    if (Variable* v = dynamic_cast<Variable*>(expr.get())) {
+        Token name = v->name;
+        return std::make_unique<Assign>(name, std::move(value));
+    }
+    
+    throw std::runtime_error("Invalid assignment target at line " + std::to_string(equals.line) + ".");
+  }
+
+  return expr;
 }
 
 std::unique_ptr<Expr> Parser::logic_or() {

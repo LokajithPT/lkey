@@ -32,6 +32,7 @@ private:
 
   // Expression parsing
   std::unique_ptr<Expr> expression();
+  std::unique_ptr<Expr> assignment();
   std::unique_ptr<Expr> logic_or();
   std::unique_ptr<Expr> logic_and();
   std::unique_ptr<Expr> equality();

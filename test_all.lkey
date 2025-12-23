@@ -1,0 +1,20 @@
+comment This is a stress test
+
+how to factorial with n so
+    when (n lesser than 2) then
+        please give 1.
+    
+    please give n into factorial(n minus 1)
+thats how
+
+say "Calculating Factorial of 5:"
+var result is factorial(5)
+say result
+
+say "Counting down with loop:"
+var x is 3
+with (x greater than 0) then
+    say x
+    x is x minus 1.
+
+say "Done."

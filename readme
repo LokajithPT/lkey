@@ -56,6 +56,15 @@ var age is 25
 var isAlive is true
 ```
 
+### 1.1 Variable Reassignment
+You can change the value of an existing variable using the `is` keyword without `var`.
+
+```lowkey
+var count is 0
+count is count plus 1
+say count
+```
+
 ### 2. Output
 Use `say` to print values to the console. It supports automatic string conversion.
 
@@ -138,7 +147,7 @@ Repeats the body as long as the condition is true.
 var x is 3
 with (x greater than 0) then
     say x
-    var x is x minus 1.
+    x is x minus 1.
 ```
 
 **Blocks:**
