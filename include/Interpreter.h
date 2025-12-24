@@ -8,6 +8,7 @@
 #include <map>
 #include <string>
 #include <any> // For holding runtime values (C++17)
+#include <stdexcept>
 #include <iostream>
 
 // Represents the runtime environment (variables and their values)

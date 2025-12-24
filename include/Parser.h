@@ -16,6 +16,7 @@ public:
 
 private:
   const std::vector<Token> &tokens;
+  bool hadError = false;
   int current = 0;
 
   // Statement parsing
@@ -50,4 +51,6 @@ private:
   Token peek();
   Token previous();
   Token consume(TokenType type, std::string message);
+  void synchronize();
+  void error(Token token, std::string message);
 };

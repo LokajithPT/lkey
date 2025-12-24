@@ -1,7 +1,8 @@
 #include "Parser.h"
 #include <stdexcept>
+#include <iostream>
 
-Parser::Parser(const std::vector<Token> &tokens) : tokens(tokens) {}
+Parser::Parser(const std::vector<Token> &tokens) : tokens(tokens), hadError(false) {}
 
 std::vector<std::unique_ptr<Stmt>> Parser::parse() {
   std::vector<std::unique_ptr<Stmt>> statements;
@@ -9,8 +10,9 @@ std::vector<std::unique_ptr<Stmt>> Parser::parse() {
     try {
         statements.push_back(declaration());
     } catch (std::runtime_error &error) {
-        // Synchronize here if we had error recovery
-        return statements; // For now, just stop or return what we have
+        hadError = true;
+        std::cerr << "Parse Error: " << error.what() << std::endl;
+        synchronize(); // Skip to next statement
     }
   }
   return statements;
@@ -478,8 +480,34 @@ Token Parser::previous() {
 }
 
 Token Parser::consume(TokenType type, std::string message) {
-  if (check(type))
-    return advance();
-
+  if (check(type)) return advance();
+  error(peek(), message);
   throw std::runtime_error(message + " at line " + std::to_string(peek().line));
+}
+
+void Parser::error(Token token, std::string message) {
+    hadError = true;
+    std::cerr << "[line " << token.line << "] Error: " << message << std::endl;
+}
+
+void Parser::synchronize() {
+    // Skip tokens until we find a statement boundary
+    advance();
+    
+    while (!isAtEnd()) {
+        if (previous().type == TokenType::DOT) return;
+        
+        switch (peek().type) {
+            case TokenType::HOW:
+            case TokenType::VAR:
+            case TokenType::SAY:
+            case TokenType::PLEASE:
+            case TokenType::WITH:
+            case TokenType::WHEN:
+                return;
+            default:
+                break;
+        }
+        advance();
+    }
 }

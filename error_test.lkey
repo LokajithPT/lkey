@@ -1,0 +1,4 @@
+var x is 10
+say x
+this is broken syntax
+say "This should not print"
