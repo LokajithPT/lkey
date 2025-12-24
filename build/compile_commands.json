@@ -22,5 +22,29 @@
   "command": "/usr/bin/c++  -I/home/skedaddle/code/lkeycpp/include -std=gnu++17 -o CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o -c /home/skedaddle/code/lkeycpp/src/Interpreter.cpp",
   "file": "/home/skedaddle/code/lkeycpp/src/Interpreter.cpp",
   "output": "CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++  -I/home/skedaddle/code/lkeycpp/include -std=gnu++17 -o CMakeFiles/run_tests.dir/tests/test_runner.cpp.o -c /home/skedaddle/code/lkeycpp/tests/test_runner.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/tests/test_runner.cpp",
+  "output": "CMakeFiles/run_tests.dir/tests/test_runner.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++  -I/home/skedaddle/code/lkeycpp/include -std=gnu++17 -o CMakeFiles/run_tests.dir/src/Lexer.cpp.o -c /home/skedaddle/code/lkeycpp/src/Lexer.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/src/Lexer.cpp",
+  "output": "CMakeFiles/run_tests.dir/src/Lexer.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++  -I/home/skedaddle/code/lkeycpp/include -std=gnu++17 -o CMakeFiles/run_tests.dir/src/Parser.cpp.o -c /home/skedaddle/code/lkeycpp/src/Parser.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/src/Parser.cpp",
+  "output": "CMakeFiles/run_tests.dir/src/Parser.cpp.o"
+},
+{
+  "directory": "/home/skedaddle/code/lkeycpp/build",
+  "command": "/usr/bin/c++  -I/home/skedaddle/code/lkeycpp/include -std=gnu++17 -o CMakeFiles/run_tests.dir/src/Interpreter.cpp.o -c /home/skedaddle/code/lkeycpp/src/Interpreter.cpp",
+  "file": "/home/skedaddle/code/lkeycpp/src/Interpreter.cpp",
+  "output": "CMakeFiles/run_tests.dir/src/Interpreter.cpp.o"
 }
 ]

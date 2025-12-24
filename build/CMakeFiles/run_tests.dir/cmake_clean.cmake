@@ -1,0 +1,18 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/run_tests.dir/link.d"
+  "CMakeFiles/run_tests.dir/src/Interpreter.cpp.o"
+  "CMakeFiles/run_tests.dir/src/Interpreter.cpp.o.d"
+  "CMakeFiles/run_tests.dir/src/Lexer.cpp.o"
+  "CMakeFiles/run_tests.dir/src/Lexer.cpp.o.d"
+  "CMakeFiles/run_tests.dir/src/Parser.cpp.o"
+  "CMakeFiles/run_tests.dir/src/Parser.cpp.o.d"
+  "CMakeFiles/run_tests.dir/tests/test_runner.cpp.o"
+  "CMakeFiles/run_tests.dir/tests/test_runner.cpp.o.d"
+  "run_tests"
+  "run_tests.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/run_tests.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/skedaddle/code/lkeycpp/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -84,6 +94,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -129,12 +184,26 @@ lkeycpp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/build
 .PHONY : lkeycpp/fast
 
+#=============================================================================
+# Target rules for targets named run_tests
+
+# Build rule for target.
+run_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_tests
+.PHONY : run_tests
+
+# fast build rule for target.
+run_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
+.PHONY : run_tests/fast
+
 src/Interpreter.o: src/Interpreter.cpp.o
 .PHONY : src/Interpreter.o
 
 # target to build an object file
 src/Interpreter.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Interpreter.cpp.o
 .PHONY : src/Interpreter.cpp.o
 
 src/Interpreter.i: src/Interpreter.cpp.i
@@ -143,6 +212,7 @@ src/Interpreter.i: src/Interpreter.cpp.i
 # target to preprocess a source file
 src/Interpreter.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Interpreter.cpp.i
 .PHONY : src/Interpreter.cpp.i
 
 src/Interpreter.s: src/Interpreter.cpp.s
@@ -151,6 +221,7 @@ src/Interpreter.s: src/Interpreter.cpp.s
 # target to generate assembly for a file
 src/Interpreter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Interpreter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Interpreter.cpp.s
 .PHONY : src/Interpreter.cpp.s
 
 src/Lexer.o: src/Lexer.cpp.o
@@ -159,6 +230,7 @@ src/Lexer.o: src/Lexer.cpp.o
 # target to build an object file
 src/Lexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Lexer.cpp.o
 .PHONY : src/Lexer.cpp.o
 
 src/Lexer.i: src/Lexer.cpp.i
@@ -167,6 +239,7 @@ src/Lexer.i: src/Lexer.cpp.i
 # target to preprocess a source file
 src/Lexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Lexer.cpp.i
 .PHONY : src/Lexer.cpp.i
 
 src/Lexer.s: src/Lexer.cpp.s
@@ -175,6 +248,7 @@ src/Lexer.s: src/Lexer.cpp.s
 # target to generate assembly for a file
 src/Lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Lexer.cpp.s
 .PHONY : src/Lexer.cpp.s
 
 src/Parser.o: src/Parser.cpp.o
@@ -183,6 +257,7 @@ src/Parser.o: src/Parser.cpp.o
 # target to build an object file
 src/Parser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Parser.cpp.o
 .PHONY : src/Parser.cpp.o
 
 src/Parser.i: src/Parser.cpp.i
@@ -191,6 +266,7 @@ src/Parser.i: src/Parser.cpp.i
 # target to preprocess a source file
 src/Parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Parser.cpp.i
 .PHONY : src/Parser.cpp.i
 
 src/Parser.s: src/Parser.cpp.s
@@ -199,6 +275,7 @@ src/Parser.s: src/Parser.cpp.s
 # target to generate assembly for a file
 src/Parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/Parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/src/Parser.cpp.s
 .PHONY : src/Parser.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -225,6 +302,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lkeycpp.dir/build.make CMakeFiles/lkeycpp.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+tests/test_runner.o: tests/test_runner.cpp.o
+.PHONY : tests/test_runner.o
+
+# target to build an object file
+tests/test_runner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_runner.cpp.o
+.PHONY : tests/test_runner.cpp.o
+
+tests/test_runner.i: tests/test_runner.cpp.i
+.PHONY : tests/test_runner.i
+
+# target to preprocess a source file
+tests/test_runner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_runner.cpp.i
+.PHONY : tests/test_runner.cpp.i
+
+tests/test_runner.s: tests/test_runner.cpp.s
+.PHONY : tests/test_runner.s
+
+# target to generate assembly for a file
+tests/test_runner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_runner.cpp.s
+.PHONY : tests/test_runner.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,8 +333,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... lkeycpp"
+	@echo "... run_tests"
 	@echo "... src/Interpreter.o"
 	@echo "... src/Interpreter.i"
 	@echo "... src/Interpreter.s"
@@ -246,6 +353,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... tests/test_runner.o"
+	@echo "... tests/test_runner.i"
+	@echo "... tests/test_runner.s"
 .PHONY : help
 
 

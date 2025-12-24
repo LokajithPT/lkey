@@ -1,3 +1,9 @@
 /home/skedaddle/code/lkeycpp/build/CMakeFiles/lkeycpp.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/run_tests.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/test.dir
 /home/skedaddle/code/lkeycpp/build/CMakeFiles/edit_cache.dir
 /home/skedaddle/code/lkeycpp/build/CMakeFiles/rebuild_cache.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/list_install_components.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/install.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/install/local.dir
+/home/skedaddle/code/lkeycpp/build/CMakeFiles/install/strip.dir

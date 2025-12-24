@@ -1,0 +1,31 @@
+Start testing: Dec 24 15:02 IST
+----------------------------------------------------------
+1/1 Testing: comprehensive_test
+1/1 Test: comprehensive_test
+Command: "/home/skedaddle/code/lkeycpp/build/run_tests"
+Directory: /home/skedaddle/code/lkeycpp/build
+"comprehensive_test" start time: Dec 24 15:02 IST
+Output:
+----------------------------------------------------------
+Running test: Basic Math... PASSED
+Running test: Variables... PASSED
+Running test: Conditionals... PASSED
+Running test: Range Loop... PASSED
+Running test: Arrays... PASSED
+Running test: Functions... PASSED
+Running test: Error Recovery... PASSED
+
+=== Test Summary ===
+Total: 7
+Passed: 7
+Failed: 0
+Success Rate: 100%
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"comprehensive_test" end time: Dec 24 15:02 IST
+"comprehensive_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 24 15:02 IST
