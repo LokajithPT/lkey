@@ -1,0 +1,2 @@
+var x is 5
+say "Hello world: " plus x

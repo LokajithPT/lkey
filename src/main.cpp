@@ -10,39 +10,45 @@
 #include <sstream>
 #include <fstream>
 
-using namespace std;
+// Exit codes - following EX_* conventions
+enum class ExitCode {
+    SUCCESS = 0,
+    IO_ERROR = 74,      // EX_IOERR - input/output error
+    PARSE_ERROR = 65,   // EX_DATAERR - malformed data
+    RUNTIME_ERROR = 70  // EX_SOFTWARE - internal software error
+};
 
 // Helper to read file content
-string readFile(const string& path) {
-    ifstream file(path);
+std::string readFile(const std::string& path) {
+    std::ifstream file(path);
     if (!file.is_open()) {
-        cerr << "Could not open file: " << path << endl;
-        exit(74); // IO Error exit code
+        std::cerr << "Could not open file: " << path << std::endl;
+        exit(static_cast<int>(ExitCode::IO_ERROR));
     }
-    stringstream buffer;
+    std::stringstream buffer;
     buffer << file.rdbuf();
     return buffer.str();
 }
 
 int main(int argc, char *argv[]) {
     if (argc > 1) {
-        string path = argv[1];
+        std::string path = argv[1];
         
         // Check extension
         if (path.length() < 5 || path.substr(path.length() - 5) != ".lkey") {
              // Just a warning, or enforce it? Let's just warn.
-             // cerr << "Warning: File does not end with .lkey" << endl;
+             // std::cerr << "Warning: File does not end with .lkey" << std::endl;
         }
 
-        string source = readFile(path);
+        std::string source = readFile(path);
         
         Lexer lexer(source);
-        vector<Token> tokens = lexer.scanTokens();
+        std::vector<Token> tokens = lexer.scanTokens();
         
         // Check for lexer errors? (scanTokens usually prints them)
         
         Parser parser(tokens);
-        vector<unique_ptr<Stmt>> statements = parser.parse();
+        std::vector<std::unique_ptr<Stmt>> statements = parser.parse();
         
         // If parser failed (returned empty or printed errors), we might want to stop.
         // But our parser is simple and returns what it can.
@@ -51,8 +57,8 @@ int main(int argc, char *argv[]) {
         interpreter.interpret(statements);
 
     } else {
-        cout << "Usage: lkeycpp <file.lkey>" << endl;
-        cout << "Lowkey Interpreter v1.0" << endl;
+        std::cout << "Usage: lkeycpp <file.lkey>" << std::endl;
+        std::cout << "Lowkey Interpreter v1.0" << std::endl;
     }
 
     return 0;
