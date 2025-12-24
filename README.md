@@ -1,6 +1,8 @@
 # Lowkey (lkey) - A Readable Programming Language
 
-> *"Lowkey makes programming as natural as conversation."*
+# Lowkey (lkey)
+
+> *"Programming should be a conversation, not a puzzle."*
 
 Lowkey is a simple, intuitive programming language that reads like plain English while maintaining the power of traditional programming. Perfect for beginners, educational purposes, and rapid prototyping.
 
