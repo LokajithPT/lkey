@@ -6,6 +6,7 @@ enum class TokenType {
   VAR,
   IS,
   CLASS,
+  QUESTIONS,
 
   PLUS,
   MINUS,

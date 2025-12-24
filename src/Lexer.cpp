@@ -38,6 +38,7 @@ const std::map<std::string, TokenType> Lexer::keywords = {
     {"var", TokenType::VAR},
     {"is", TokenType::IS},
     {"class", TokenType::CLASS},
+    {"questions", TokenType::QUESTIONS},
     {"read", TokenType::READ},
     {"as", TokenType::AS},
     {"say", TokenType::SAY}
