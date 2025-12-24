@@ -22,6 +22,9 @@ std::unique_ptr<Stmt> Parser::declaration() {
   if (match({TokenType::HOW})) {
       return functionDeclaration("function");
   }
+  if (match({TokenType::CLASS})) {
+      return classDeclaration();
+  }
   if (match({TokenType::VAR})) {
       return varDeclaration();
   }
@@ -39,7 +42,10 @@ std::unique_ptr<Stmt> Parser::functionDeclaration(std::string kind) {
         } while (match({TokenType::COMMA}));
     }
     
-    consume(TokenType::SO, "Expected 'so' before " + kind + " body.");
+    // Only consume SO if this is not a class declaration
+    if (!check(TokenType::DOT) && !check(TokenType::THATS)) {
+        consume(TokenType::SO, "Expected 'so' before " + kind + " body.");
+    }
     
     std::vector<std::unique_ptr<Stmt>> body;
     while (!check(TokenType::THATS) && !isAtEnd()) {
@@ -50,6 +56,34 @@ std::unique_ptr<Stmt> Parser::functionDeclaration(std::string kind) {
     consume(TokenType::HOW, "Expected 'how' after 'thats'.");
     
     return std::make_unique<Function>(name, params, std::move(body));
+}
+
+std::unique_ptr<Stmt> Parser::classDeclaration() {
+    consume(TokenType::IS, "Expected 'is' after class name.");
+    Token name = previous();  // Get class name
+    
+    std::vector<std::unique_ptr<Function>> methods;
+    
+    // Parse class methods
+    while (!check(TokenType::END_OF_FILE) && !check(TokenType::DOT)) {
+        if (match({TokenType::HOW})) {
+            // Method declaration
+            auto methodDecl = functionDeclaration("method");
+            auto methodPtr = dynamic_cast<Function*>(methodDecl.get());
+            if (methodPtr) {
+                std::unique_ptr<Function> method = std::make_unique<Function>(
+                    methodPtr->name, methodPtr->params, std::move(methodPtr->body)
+                );
+                methods.push_back(std::move(method));
+            }
+        } else {
+            // Skip unexpected tokens
+            advance();
+        }
+    }
+    
+    consume(TokenType::DOT, "Expected '.' after class definition.");
+    return std::make_unique<Class>(name, std::move(methods));
 }
 
 std::unique_ptr<Stmt> Parser::varDeclaration() {

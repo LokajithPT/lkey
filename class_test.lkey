@@ -1,0 +1,14 @@
+how to Person has
+    how to init with name, age so
+        var name is "Alice"
+        var age is 25
+        please give "Created"
+    thats how
+
+how to greet with person so
+    say "Hello " plus person.name plus " (age " plus person.age plus ")"
+thats how
+
+var p is Person
+p.init("Bob", 30)
+p.greet()

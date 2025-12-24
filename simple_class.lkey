@@ -1,0 +1,13 @@
+how to Person has
+    var name is ""
+    var age is 0
+    how to init with name, age so
+        name is name
+        age is age
+    thats how
+thats how
+
+var p is Person
+p.init("Alice", 25)
+say p.name
+say p.age

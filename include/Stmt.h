@@ -98,3 +98,12 @@ struct Function : Stmt {
     Function(Token name, std::vector<Token> params, std::vector<std::unique_ptr<Stmt>> body)
         : name(name), params(params), body(std::move(body)) {}
 };
+
+// Class declaration
+struct Class : Stmt {
+    Token name;
+    std::vector<std::unique_ptr<Function>> methods;
+
+    Class(Token name, std::vector<std::unique_ptr<Function>> methods)
+        : name(name), methods(std::move(methods)) {}
+};

@@ -46,7 +46,9 @@ CMakeFiles/run_tests.dir/src/Interpreter.cpp.o: /home/skedaddle/code/lkeycpp/src
   /usr/include/bits/select.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -296,7 +298,9 @@ CMakeFiles/run_tests.dir/src/Lexer.cpp.o: /home/skedaddle/code/lkeycpp/src/Lexer
   /usr/include/bits/select.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -514,7 +518,9 @@ CMakeFiles/run_tests.dir/src/Parser.cpp.o: /home/skedaddle/code/lkeycpp/src/Pars
   /usr/include/bits/select.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -744,7 +750,9 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o: /home/skedaddle/code/lkeycpp/t
   /usr/include/bits/select.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -1021,7 +1029,11 @@ CMakeFiles/run_tests.dir/src/Parser.cpp.o:
 
 /usr/include/wchar.h:
 
-/usr/include/c++/15.2.1/bits/refwrap.h:
+/usr/include/c++/15.2.1/bits/fstream.tcc:
+
+/usr/include/time.h:
+
+/usr/include/sys/types.h:
 
 /usr/include/c++/15.2.1/bits/nested_exception.h:
 
@@ -1034,10 +1046,6 @@ CMakeFiles/run_tests.dir/src/Parser.cpp.o:
 /usr/include/c++/15.2.1/cwchar:
 
 /usr/include/c++/15.2.1/cstdio:
-
-/usr/include/math.h:
-
-/usr/include/c++/15.2.1/bits/invoke.h:
 
 /usr/include/bits/endian.h:
 
@@ -1054,10 +1062,6 @@ CMakeFiles/run_tests.dir/src/Parser.cpp.o:
 /usr/include/c++/15.2.1/bits/concept_check.h:
 
 /usr/include/c++/15.2.1/bits/memory_resource.h:
-
-/usr/include/c++/15.2.1/bits/fstream.tcc:
-
-/usr/include/time.h:
 
 /usr/include/c++/15.2.1/bits/basic_ios.tcc:
 
@@ -1082,8 +1086,6 @@ CMakeFiles/run_tests.dir/src/Parser.cpp.o:
 /home/skedaddle/code/lkeycpp/include/Interpreter.h:
 
 /usr/include/bits/wctype-wchar.h:
-
-/usr/include/sys/types.h:
 
 CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
@@ -1151,6 +1153,8 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/c++/15.2.1/bits/sstream.tcc:
 
+/usr/include/bits/types/__fpos64_t.h:
+
 /usr/include/bits/iscanonical.h:
 
 /home/skedaddle/code/lkeycpp/src/Interpreter.cpp:
@@ -1161,10 +1165,6 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/bits/floatn-common.h:
 
-/usr/include/c++/15.2.1/bits/node_handle.h:
-
-/usr/include/c++/15.2.1/bits/basic_string.tcc:
-
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/bits/endianness.h:
@@ -1172,10 +1172,6 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 /usr/include/c++/15.2.1/tr1/ell_integral.tcc:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
-
-/usr/include/c++/15.2.1/bits/streambuf.tcc:
-
-/usr/include/bits/cpu-set.h:
 
 /usr/include/c++/15.2.1/bits/cpp_type_traits.h:
 
@@ -1275,6 +1271,14 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/bits/mathcalls-narrow.h:
 
+/usr/include/bits/stdio.h:
+
+/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
+
+/usr/include/c++/15.2.1/debug/assertions.h:
+
+/usr/include/c++/15.2.1/new:
+
 /usr/include/c++/15.2.1/bits/atomic_base.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
@@ -1291,8 +1295,6 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/bits/select.h:
 
-/usr/include/bits/types/__fpos64_t.h:
-
 /usr/include/bits/waitstatus.h:
 
 /usr/include/bits/wchar.h:
@@ -1305,7 +1307,7 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/bits/stdint-intn.h:
 
-/usr/include/c++/15.2.1/bits/new_allocator.h:
+/usr/include/bits/stdlib-bsearch.h:
 
 /usr/include/bits/types/time_t.h:
 
@@ -1323,10 +1325,6 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 
 /usr/include/c++/15.2.1/type_traits:
 
-/usr/include/c++/15.2.1/system_error:
-
-/usr/include/asm/errno.h:
-
 /usr/include/c++/15.2.1/bits/move.h:
 
 /usr/include/bits/types.h:
@@ -1340,6 +1338,26 @@ CMakeFiles/run_tests.dir/tests/test_runner.cpp.o:
 /usr/include/bits/locale.h:
 
 /usr/include/c++/15.2.1/map:
+
+/usr/include/c++/15.2.1/bits/new_allocator.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/c++/15.2.1/system_error:
+
+/usr/include/c++/15.2.1/bits/basic_string.tcc:
+
+/usr/include/c++/15.2.1/bits/node_handle.h:
+
+/usr/include/c++/15.2.1/bits/refwrap.h:
+
+/usr/include/bits/cpu-set.h:
+
+/usr/include/c++/15.2.1/bits/streambuf.tcc:
+
+/usr/include/c++/15.2.1/bits/invoke.h:
+
+/usr/include/math.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
 
@@ -1436,12 +1454,6 @@ CMakeFiles/run_tests.dir/src/Interpreter.cpp.o:
 /usr/include/c++/15.2.1/cstddef:
 
 /usr/include/c++/15.2.1/cstdlib:
-
-/usr/include/c++/15.2.1/bits/shared_ptr_base.h:
-
-/usr/include/c++/15.2.1/debug/assertions.h:
-
-/usr/include/c++/15.2.1/new:
 
 /usr/include/c++/15.2.1/ext/aligned_buffer.h:
 

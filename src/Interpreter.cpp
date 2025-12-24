@@ -79,8 +79,11 @@ void Interpreter::execute(const Stmt& stmt) {
         std::any value = evaluate(*varStmt->initializer);
         environment->define(varStmt->name.lexeme, value);
     } else if (const Function* funcStmt = dynamic_cast<const Function*>(&stmt)) {
-        // Store the function AST node in the environment
+        // Store function AST node in the environment
         environment->define(funcStmt->name.lexeme, funcStmt);
+    } else if (const Class* classStmt = dynamic_cast<const Class*>(&stmt)) {
+        // Store class object in the environment
+        environment->define(classStmt->name.lexeme, classStmt);
     } else if (const Return* returnStmt = dynamic_cast<const Return*>(&stmt)) {
         std::any value = std::any(); // Default to null/void
         if (returnStmt->value) {
