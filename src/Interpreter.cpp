@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <string>
 #include <typeinfo>
-#include <variant>
 #include <cmath>
 #include <sstream>
 
