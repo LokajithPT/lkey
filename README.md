@@ -40,7 +40,7 @@ cmake .. && make
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/lkey.git
+git clone https://github.com/LokajithPT/lkey.git
 cd lkey
 
 # Create build directory
