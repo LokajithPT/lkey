@@ -10,7 +10,7 @@ Lowkey is a simple, intuitive programming language that reads like plain English
 
 ```bash
 # Clone and build
-git clone https://github.com/yourusername/lkey.git
+git clone https://github.com/LokajithPT/lkey.git
 cd lkey
 mkdir build && cd build
 cmake .. && make
