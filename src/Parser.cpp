@@ -115,12 +115,46 @@ std::unique_ptr<Stmt> Parser::howsToDeclaration() {
                 consume(TokenType::THATS, "Expected 'thats' after method body.");
                 consume(TokenType::HOW, "Expected 'how' after 'thats'.");
                 
-                auto method = std::make_unique<Function>(methodName, params, std::move(body));
-                methods.push_back(std::move(method));
-            } else {
-                // Skip unexpected tokens
-                advance();
-            }
+                 auto method = std::make_unique<Function>(methodName, params, std::move(body));
+                 methods.push_back(std::move(method));
+             } else {
+                 // Skip unexpected tokens
+                 advance();
+             }
+         }
+     }
+     
+     consume(TokenType::DOT, "Expected '.' after class definition.");
+     return std::make_unique<Class>(name, std::move(methods));
+}
+
+std::unique_ptr<Stmt> Parser::questionsToDeclaration() {
+     consume(TokenType::IS, "Expected 'is' after class name.");
+     Token name = previous();  // Get class name
+     
+     std::vector<std::unique_ptr<Function>> methods;
+     
+     // Parse questions for class
+     while (!check(TokenType::END_OF_FILE) && !check(TokenType::DOT)) {
+         if (match({TokenType::QUESTIONS})) {
+             // Questions declaration: "questions name are"
+             auto methodDecl = functionDeclaration("method");
+             auto methodPtr = dynamic_cast<Function*>(methodDecl.get());
+             if (methodPtr) {
+                 std::unique_ptr<Function> method = std::make_unique<Function>(
+                     methodPtr->name, methodPtr->params, std::move(methodPtr->body)
+                     );
+                 methods.push_back(std::move(method));
+             }
+         } else {
+             // Skip unexpected tokens
+             advance();
+         }
+     }
+     
+     consume(TokenType::DOT, "Expected '.' after class definition.");
+     return std::make_unique<Class>(name, std::move(methods));
+}
         } else {
             // Skip unexpected tokens
             advance();
