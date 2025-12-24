@@ -7,9 +7,21 @@
 #include <sstream>
 
 // Exception for return statements
-struct ReturnException {
+class ReturnException : public std::exception {
+private:
     std::any value;
-    ReturnException(std::any value) : value(value) {}
+    std::string message;
+
+public:
+    ReturnException(std::any value) : value(value) {
+        message = "Return statement executed";
+    }
+    
+    const char* what() const noexcept override {
+        return message.c_str();
+    }
+    
+    std::any getValue() const { return value; }
 };
 
 // --- Interpreter methods ---
@@ -229,7 +241,7 @@ std::any Interpreter::evaluate(const Expr& expr) {
         try {
             executeBlock(function->body, &fnEnv);
         } catch (const ReturnException& returnValue) {
-            return returnValue.value;
+            return returnValue.getValue();
         }
         
         return std::any(); // Void return

@@ -1,0 +1,93 @@
+comment Comprehensive lkey test file - tests every feature
+
+comment 1. Variables and basic I/O
+var name is "TestUser"
+var year is 2025
+say "Name: " plus name plus ", Year: " plus year
+
+comment 2. Math Operations
+var a is 15
+var b is 4
+say "15 plus 4 = " plus (a plus b)
+say "15 minus 4 = " plus (a minus b)
+say "15 into 4 = " plus (a into b)
+say "15 div 4 = " plus (a div b)
+say "15 reminder 4 = " plus (a reminder b)
+
+comment 3. Variable Reassignment
+a is a plus 10
+say "a after reassignment: " plus a
+
+comment 4. Conditional Logic
+var score is 92
+when (score greater than 90) then
+    say "Grade: A",
+when (score greater than 80) then
+    say "Grade: B",
+when nothing then
+    say "Grade: C".
+
+comment 5. Boolean Logic
+var is_student is 1
+var has_fee_paid is 1
+when (is_student and has_fee_paid) then
+    say "Status: Enrolled",
+when nothing then
+    say "Status: Not Enrolled".
+
+comment 6. Range Loop
+say "Counting 1 to 5:"
+with i from 1 to 5 then
+    say "  " plus i.
+
+comment 7. While Loop
+say "Countdown from 5:"
+var count is 5
+with (count greater than 0) then
+    say "  " plus count
+    count is count minus 1.
+
+comment 8. ForEach Words
+var text is "hello world test"
+say "Words in text:"
+with text is word as words then
+    say "  " plus word.
+
+comment 9. Letters (simplified)
+var word is "abc"
+say "Word length test: " plus word
+
+comment 10. Arrays
+var empty is ()
+say "Empty array: " plus empty
+
+var nums is (1, 2, 3, (4, 5))
+say "Array: " plus nums
+say "First element: " plus nums(0)
+say "Nested element nums(3)(1): " plus nums(3)(1)
+
+var mixed is (42, "hello")
+say "Mixed array: " plus mixed
+say "Mixed[1]: " plus mixed(1)
+
+comment 11. Functions
+how to add with x, y so
+    var sum is x plus y
+    please give sum
+thats how
+
+how to factorial with n so
+    when (n lesser than 2) then
+        please give 1,
+    when nothing then
+        please give n into factorial(n minus 1).
+thats how
+
+say "add(3, 7) = " plus add(3, 7)
+say "factorial(5) = " plus factorial(5)
+
+comment 12. Complex Expressions
+var result is (10 plus 5) into (8 div 2) reminder 3
+say "Complex: " plus result
+
+say "--- ALL TESTS PASSED ---"
