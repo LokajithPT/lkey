@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/run_tests.dir/link.d CMakeFiles/run_tests.dir/tests/test_runner.cpp.o CMakeFiles/run_tests.dir/src/Lexer.cpp.o CMakeFiles/run_tests.dir/src/Parser.cpp.o CMakeFiles/run_tests.dir/src/Interpreter.cpp.o -o run_tests
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/run_tests.dir/link.d CMakeFiles/run_tests.dir/tests/test_runner.cpp.o CMakeFiles/run_tests.dir/src/Lexer.cpp.o CMakeFiles/run_tests.dir/src/Parser.cpp.o CMakeFiles/run_tests.dir/src/Interpreter.cpp.o -o run_tests
