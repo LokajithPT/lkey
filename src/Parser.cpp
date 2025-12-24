@@ -23,10 +23,24 @@ std::unique_ptr<Stmt> Parser::declaration() {
       if (match({TokenType::TO})) {
           // It's a class declaration: "hows to ClassName has"
           return classDeclaration();
-      } else {
-          // It's a function declaration: "how to functionName has"
-          return functionDeclaration("function");
-      }
+            } else if (match({TokenType::QUESTIONS})) {
+                // It's a questions declaration: "questions name are"
+                auto methodDecl = functionDeclaration("method");
+                auto methodPtr = dynamic_cast<Function*>(methodDecl.get());
+                if (methodPtr) {
+                    std::unique_ptr<Function> method = std::make_unique<Function>(
+                        methodPtr->name, methodPtr->params, std::move(methodPtr->body)
+                    );
+                    methods.push_back(std::move(method));
+                }
+            } else {
+                // Skip unexpected tokens
+                advance();
+            }
+        } else {
+            // Skip unexpected tokens
+            advance();
+        }
   }
   if (match({TokenType::CLASS})) {
       return classDeclaration();
