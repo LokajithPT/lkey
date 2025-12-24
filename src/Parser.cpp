@@ -20,7 +20,13 @@ std::vector<std::unique_ptr<Stmt>> Parser::parse() {
 
 std::unique_ptr<Stmt> Parser::declaration() {
   if (match({TokenType::HOW})) {
-      return functionDeclaration("function");
+      if (match({TokenType::TO})) {
+          // It's a class declaration: "hows to ClassName has"
+          return classDeclaration();
+      } else {
+          // It's a function declaration: "how to functionName has"
+          return functionDeclaration("function");
+      }
   }
   if (match({TokenType::CLASS})) {
       return classDeclaration();
@@ -67,14 +73,45 @@ std::unique_ptr<Stmt> Parser::classDeclaration() {
     // Parse class methods
     while (!check(TokenType::END_OF_FILE) && !check(TokenType::DOT)) {
         if (match({TokenType::HOW})) {
-            // Method declaration
-            auto methodDecl = functionDeclaration("method");
-            auto methodPtr = dynamic_cast<Function*>(methodDecl.get());
-            if (methodPtr) {
-                std::unique_ptr<Function> method = std::make_unique<Function>(
-                    methodPtr->name, methodPtr->params, std::move(methodPtr->body)
-                );
+            if (match({TokenType::TO})) {
+                // Method declaration: "how to methodName has"
+                auto methodDecl = functionDeclaration("method");
+                auto methodPtr = dynamic_cast<Function*>(methodDecl.get());
+                if (methodPtr) {
+                    std::unique_ptr<Function> method = std::make_unique<Function>(
+                        methodPtr->name, methodPtr->params, std::move(methodPtr->body)
+                    );
+                    methods.push_back(std::move(method));
+                }
+            } else if (check({TokenType::IDENTIFIER})) {
+                // Might be a method without 'to': "how methodName has"
+                auto methodName = advance(); // consume method name
+                consume(TokenType::WITH, "Expected 'with' after method name.");
+                consume(TokenType::SO, "Expected 'so' before method body.");
+                
+                // Parse method parameters and body
+                std::vector<Token> params;
+                if (match({TokenType::WITH})) {
+                    do {
+                        params.push_back(consume(TokenType::IDENTIFIER, "Expected parameter name."));
+                    } while (match({TokenType::COMMA}));
+                }
+                
+                consume(TokenType::SO, "Expected 'so' before method body.");
+                
+                std::vector<std::unique_ptr<Stmt>> body;
+                while (!check(TokenType::THATS) && !isAtEnd()) {
+                    body.push_back(declaration());
+                }
+                
+                consume(TokenType::THATS, "Expected 'thats' after method body.");
+                consume(TokenType::HOW, "Expected 'how' after 'thats'.");
+                
+                auto method = std::make_unique<Function>(methodName, params, std::move(body));
                 methods.push_back(std::move(method));
+            } else {
+                // Skip unexpected tokens
+                advance();
             }
         } else {
             // Skip unexpected tokens
@@ -534,6 +571,7 @@ void Parser::synchronize() {
         switch (peek().type) {
             case TokenType::HOW:
             case TokenType::VAR:
+            case TokenType::CLASS:
             case TokenType::SAY:
             case TokenType::PLEASE:
             case TokenType::WITH:

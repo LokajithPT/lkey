@@ -1,0 +1,12 @@
+hows to Test has
+    var name is ""
+    var age is 0
+    how to init with name, age so
+        name is name
+        age is age
+    thats how
+thats how
+
+var t is Test
+t.init("Alice", 25)
+say "Created"

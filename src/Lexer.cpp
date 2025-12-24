@@ -28,6 +28,7 @@ const std::map<std::string, TokenType> Lexer::keywords = {
     {"to", TokenType::TO},
     
     {"how", TokenType::HOW},
+    {"hows", TokenType::HOW},  // Reuse HOW token for both
     {"so", TokenType::SO},
     {"thats", TokenType::THATS},
     
