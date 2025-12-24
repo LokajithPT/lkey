@@ -13,7 +13,7 @@ public:
 private:
   const std::string &source;
   std::vector<Token> tokens;
-  std::map<std::string, TokenType> keywords;
+  static const std::map<std::string, TokenType> keywords;
 
   int start = 0;
   int current = 0;

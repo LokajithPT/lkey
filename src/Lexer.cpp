@@ -4,40 +4,44 @@
 #include <ostream>
 #include <vector>
 
-Lexer::Lexer(const std::string &source) : source(source) {
-    keywords["plus"] = TokenType::PLUS;
-    keywords["minus"] = TokenType::MINUS;
-    keywords["into"] = TokenType::INTO;
-    keywords["div"] = TokenType::DIV;
-    keywords["reminder"] = TokenType::REMINDER;
+// Initialize static keyword map once
+const std::map<std::string, TokenType> Lexer::keywords = {
+    {"plus", TokenType::PLUS},
+    {"minus", TokenType::MINUS},
+    {"into", TokenType::INTO},
+    {"div", TokenType::DIV},
+    {"reminder", TokenType::REMINDER},
+    
+    {"greater", TokenType::GREATER},
+    {"lesser", TokenType::LESSER},
+    {"equal", TokenType::EQUAL},
+    {"not", TokenType::NOT},
+    {"and", TokenType::AND},
+    {"or", TokenType::OR},
+    
+    {"when", TokenType::WHEN},
+    {"then", TokenType::THEN},
+    {"nothing", TokenType::NOTHING},
+    
+    {"with", TokenType::WITH},
+    {"from", TokenType::FROM},
+    {"to", TokenType::TO},
+    
+    {"how", TokenType::HOW},
+    {"so", TokenType::SO},
+    {"thats", TokenType::THATS},
+    
+    {"please", TokenType::PLEASE},
+    {"give", TokenType::GIVE},
+    
+    {"var", TokenType::VAR},
+    {"is", TokenType::IS},
+    {"read", TokenType::READ},
+    {"as", TokenType::AS},
+    {"say", TokenType::SAY}
+};
 
-    keywords["greater"] = TokenType::GREATER;
-    keywords["lesser"] = TokenType::LESSER;
-    keywords["equal"] = TokenType::EQUAL;
-    keywords["not"] = TokenType::NOT;
-    keywords["and"] = TokenType::AND;
-    keywords["or"] = TokenType::OR;
-    
-    keywords["when"] = TokenType::WHEN;
-    keywords["then"] = TokenType::THEN;
-    keywords["nothing"] = TokenType::NOTHING;
-    
-    keywords["with"] = TokenType::WITH;
-    keywords["from"] = TokenType::FROM;
-    keywords["to"] = TokenType::TO;
-    
-    keywords["how"] = TokenType::HOW;
-    keywords["so"] = TokenType::SO;
-    keywords["thats"] = TokenType::THATS;
-    
-    keywords["please"] = TokenType::PLEASE;
-    keywords["give"] = TokenType::GIVE;
-    
-    keywords["var"] = TokenType::VAR;
-    keywords["is"] = TokenType::IS;
-    keywords["read"] = TokenType::READ;
-    keywords["as"] = TokenType::AS;
-    keywords["say"] = TokenType::SAY;
+Lexer::Lexer(const std::string &source) : source(source) {
 }
 
 std::vector<Token> Lexer::scanTokens() {
@@ -142,8 +146,9 @@ void Lexer::scanToken() {
 
       TokenType type = TokenType::IDENTIFIER;
       
-      if (keywords.find(text) != keywords.end()) {
-          type = keywords[text];
+      auto it = keywords.find(text);
+      if (it != keywords.end()) {
+          type = it->second;
       }
       
       tokens.push_back({type, text, line});
